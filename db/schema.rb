@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_231124) do
+ActiveRecord::Schema.define(version: 2021_12_01_160232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,33 @@ ActiveRecord::Schema.define(version: 2021_11_30_231124) do
     t.string "name"
     t.boolean "boss"
     t.integer "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "monsters", force: :cascade do |t|
+    t.integer "level_id"
+    t.string "name"
+    t.boolean "enraged"
+    t.integer "health"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.boolean "unlocked"
+    t.integer "health"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.integer "role_id"
+    t.string "name"
+    t.boolean "ranged_attack"
+    t.integer "fire_rate"
+    t.integer "damage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
