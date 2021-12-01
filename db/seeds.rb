@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-levels_list = [
+levels = [
   [1, "Level_1", false, 5],
   [2, "Level_2", false, 10],
   [3, "Level_3", true, 15],
@@ -15,7 +15,7 @@ levels_list = [
 #Level.create(name: "Level 2", boss: false, difficulty: 10)
 #Level.create(name: "Level 3", boss: true, difficulty: 15)
 
-monster_list = [
+monsters = [
   [1, "Monster_1", false, 10],
   [1, "Monster_2", true, 7],
   [2, "Monster_3", true, 8],
@@ -38,6 +38,19 @@ weapons = [
   [3, 'weapon_5', false, 1.0, 80]
   [3, 'weapon_6', true, 0.5, 20]
 ]
-levels_list.each do |name, boss, rating|
-  #Levels.create(name: name, boss: boss, rating: rating)
+
+levels.each do |name, boss, rating|
+  Level.create(name: name, boss: boss, rating: rating)
+end
+
+monsters.each do |name, enraged, health|
+  Monster.create(name: name, enraged: enraged, health: health)
+end
+
+roles.each do |name, unlocked, health|
+  Role.create(name: name, unlocked: unlocked, health: health)
+end
+
+weapons.each do |name, ranged_attack, fire_rate, damage|
+  Weapon.create(name: name, ranged_attack: ranged_attack, fire_rate: fire_rate, damage: damage)
 end
