@@ -1,0 +1,7 @@
+<h1>Levels</h1>
+<br>
+<% @levels.each do |level| %>
+  <h3><%= level.name %></h3>
+  <p>Boss: <%= level.boss %></p>
+  <p>Difficulty: <%= level.difficulty %></p>
+<% end %>
