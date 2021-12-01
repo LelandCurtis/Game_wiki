@@ -9,7 +9,7 @@
 levels = [
   [1, "Level_1", false, 5],
   [2, "Level_2", false, 10],
-  [3, "Level_3", true, 15],
+  [3, "Level_3", true, 15]
 ]
 #Level.create(name: "Level 1", boss: false, difficulty: 5)
 #Level.create(name: "Level 2", boss: false, difficulty: 10)
@@ -21,7 +21,7 @@ monsters = [
   [2, "Monster_3", true, 8],
   [2, "Monster_4", false, 12],
   [3, "Monster_5", false, 11],
-  [3, "Monster_6", true, 10],
+  [3, "Monster_6", true, 10]
 ]
 
 roles = [
@@ -31,16 +31,16 @@ roles = [
 ]
 
 weapons = [
-  [1, 'weapon_1', false, 0.5, 30]
-  [1, 'weapon_2', false, 0.25, 15]
-  [2, 'weapon_3', true, 1.0, 45]
-  [2, 'weapon_4', true, 1.5, 70]
-  [3, 'weapon_5', false, 1.0, 80]
+  [1, 'weapon_1', false, 0.5, 30],
+  [1, 'weapon_2', false, 0.25, 15],
+  [2, 'weapon_3', true, 1.0, 45],
+  [2, 'weapon_4', true, 1.5, 70],
+  [3, 'weapon_5', false, 1.0, 80],
   [3, 'weapon_6', true, 0.5, 20]
 ]
 
-levels.each do |name, boss, rating|
-  Level.create(name: name, boss: boss, rating: rating)
+levels.each do |name, boss, difficulty|
+  Level.create(name: name, boss: boss, difficulty: difficulty)
 end
 
 monsters.each do |level_id, name, enraged, health|
