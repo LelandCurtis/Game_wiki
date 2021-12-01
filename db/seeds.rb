@@ -43,14 +43,14 @@ levels.each do |name, boss, rating|
   Level.create(name: name, boss: boss, rating: rating)
 end
 
-monsters.each do |name, enraged, health|
-  Monster.create(name: name, enraged: enraged, health: health)
+monsters.each do |level_id, name, enraged, health|
+  Monster.create(level_id: level_id, name: name, enraged: enraged, health: health)
 end
 
 roles.each do |name, unlocked, health|
   Role.create(name: name, unlocked: unlocked, health: health)
 end
 
-weapons.each do |name, ranged_attack, fire_rate, damage|
-  Weapon.create(name: name, ranged_attack: ranged_attack, fire_rate: fire_rate, damage: damage)
+weapons.each do |role_id, name, ranged_attack, fire_rate, damage|
+  Weapon.create(role_id: role_id, name: name, ranged_attack: ranged_attack, fire_rate: fire_rate, damage: damage)
 end
