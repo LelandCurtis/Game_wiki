@@ -294,9 +294,9 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
           null,
           null
@@ -384,12 +384,21 @@
           1,
           null,
           1,
+          2,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
       },
       "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/level.rb": {
         "lines": [
+          1,
           1,
           null
         ]
@@ -406,12 +415,17 @@
           1,
           null,
           1,
+          2,
+          null,
+          1,
+          null,
           null,
           null
         ]
       },
       "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/monster.rb": {
         "lines": [
+          1,
           1,
           null
         ]
@@ -499,6 +513,10 @@
         ]
       }
     },
+<<<<<<< HEAD
     "timestamp": 1638476869
+=======
+    "timestamp": 1638480565
+>>>>>>> fd446a3f3ccee9d0340e906fe3590592627072b7
   }
 }
