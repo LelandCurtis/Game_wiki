@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_160232) do
+ActiveRecord::Schema.define(version: 2021_12_02_035913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 2021_12_01_160232) do
   end
 
   create_table "monsters", force: :cascade do |t|
-    t.integer "level_id"
     t.string "name"
     t.boolean "enraged"
     t.integer "health"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "levels_id"
+    t.index ["levels_id"], name: "index_monsters_on_levels_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -41,13 +42,16 @@ ActiveRecord::Schema.define(version: 2021_12_01_160232) do
   end
 
   create_table "weapons", force: :cascade do |t|
-    t.integer "role_id"
     t.string "name"
     t.boolean "ranged_attack"
     t.integer "fire_rate"
     t.integer "damage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "roles_id"
+    t.index ["roles_id"], name: "index_weapons_on_roles_id"
   end
 
+  add_foreign_key "monsters", "levels", column: "levels_id"
+  add_foreign_key "weapons", "roles", column: "roles_id"
 end
