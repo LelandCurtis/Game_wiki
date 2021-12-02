@@ -5,9 +5,9 @@ RSpec.describe 'Monsters pages', type: :feature do
     @monster_1 = Monster.create!(level_id: 1, name: "Monster_1", enraged: false, health: 10)
     @monster_2 = Monster.create!(level_id: 1, name: "Monster_2", enraged: true, health: 7)
     @monster_3 = Monster.create!(level_id: 2, name: "Monster_3", enraged: true, health: 8)
-    @monster_3 = Monster.create!(level_id: 2, name: "Monster_4", enraged: false, health: 12)
-    @monster_4 = Monster.create!(level_id: 3, name: "Monster_5", enraged: false, health: 11)
-    @monster_4 = Monster.create!(level_id: 3, name: "Monster_6", enraged: true, health: 10)
+    @monster_4 = Monster.create!(level_id: 2, name: "Monster_4", enraged: false, health: 12)
+    @monster_5 = Monster.create!(level_id: 3, name: "Monster_5", enraged: false, health: 11)
+    @monster_6 = Monster.create!(level_id: 3, name: "Monster_6", enraged: true, health: 10)
   end
 
   describe 'index page' do

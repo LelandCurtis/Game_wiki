@@ -244,6 +244,8 @@
           null,
           1,
           1,
+          1,
+          1,
           null
         ]
       },
@@ -253,21 +255,7 @@
           null
         ]
       },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/features/monsters_spec.rb": {
-        "lines": [
-
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/models/level_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/level.rb": {
+      "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/monster.rb": {
         "lines": [
           1,
           null
@@ -280,52 +268,7 @@
           null
         ]
       },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/models/monster_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/monster.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/models/role_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/role.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/models/weapon_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/app/models/weapon.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/ericchon/turing/2mod/projects/game_wiki/app/controllers/levels_controller.rb": {
+      "/Users/ericchon/turing/2mod/projects/game_wiki/app/controllers/monsters_controller.rb": {
         "lines": [
           1,
           1,
@@ -345,6 +288,6 @@
         ]
       }
     },
-    "timestamp": 1638402953
+    "timestamp": 1638404144
   }
 }
