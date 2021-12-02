@@ -20,7 +20,7 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
 
   it 'has a title call "Weapons available to ..Role name"' do
     visit "/roles/#{@role_1.id}/weapons"
-    expect(page).to have_content("Weapons Available to #{@role_1.name}")
+    expect(page).to have_content("Weapons Available To #{@role_1.name} :")
   end
 
   it 'lists all weapons and their attributes' do

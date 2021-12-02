@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/roles/:id', to: 'roles#show'
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
+  get '/roles/:id/weapons', to: 'role_weapons#index'
 end
