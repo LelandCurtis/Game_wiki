@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Monster, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  it {should belong_to :level}
+
+  describe 'instance methods' do
+
+  end
 end
