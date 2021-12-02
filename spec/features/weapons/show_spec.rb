@@ -20,12 +20,12 @@ RSpec.describe 'weapons show page' do
 
   it 'has a title of the name of the weapon' do
     visit "/weapons/#{@weapon_1.id}"
-    expect(page).to have_content("Name: #{@weapon_1.name}")
+    expect(page).to have_content(@weapon_1.name)
   end
 
   it 'displays all data related to that weapon' do
     visit "/weapons/#{@weapon_1.id}"
-    expect(page).to have_content("Ranged Attack?: #{@weapon_1.ranged_attack}")
+    expect(page).to have_content("Ranged Attack? #{@weapon_1.ranged_attack}")
     expect(page).to have_content("Fire Rate: #{@weapon_1.fire_rate}")
     expect(page).to have_content("Damage: #{@weapon_1.damage}")
   end
