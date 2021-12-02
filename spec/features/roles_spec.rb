@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'all pages related to roles:' do
   describe 'roles index page' do
     before :each do
-      @role_1 = Role.create(name: 'role_1', unlocked: true, health: 20)
-      @role_2 = Role.create(name: 'role_2', unlocked: true, health: 25)
-      @role_3 = Role.create(name: 'role_3', unlocked: false, health: 30)
+      @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
+      @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
+      @role_3 = Role.create!(name: 'role_3', unlocked: false, health: 30)
     end
 
     it 'exists' do
