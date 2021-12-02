@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Level, type: :model do
-  it {should have_many :weapons}
+  it {should have_many :monsters}
 
   describe 'instance methods' do
     # before :each do
