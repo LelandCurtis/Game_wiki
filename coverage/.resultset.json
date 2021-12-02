@@ -253,6 +253,11 @@
           null
         ]
       },
+      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/features/monsters_spec.rb": {
+        "lines": [
+
+        ]
+      },
       "/Users/ericchon/turing/2mod/projects/game_wiki/spec/models/level_spec.rb": {
         "lines": [
           1,
@@ -340,6 +345,6 @@
         ]
       }
     },
-    "timestamp": 1638401568
+    "timestamp": 1638402953
   }
 }

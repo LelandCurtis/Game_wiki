@@ -18,7 +18,7 @@ require 'rails_helper'
     end
   end
 
-  describe 'details page' do
+  describe 'show page' do
     it "shows all the data related to corrosponding level " do
       visit "/levels/#{@level_1.id}"
 
