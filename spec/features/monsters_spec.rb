@@ -2,12 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'Monsters pages', type: :feature do
   before :each do
-    @monster_1 = Monster.create!(level_id: 1, name: "Monster_1", enraged: false, health: 10)
-    @monster_2 = Monster.create!(level_id: 1, name: "Monster_2", enraged: true, health: 7)
-    @monster_3 = Monster.create!(level_id: 2, name: "Monster_3", enraged: true, health: 8)
-    @monster_4 = Monster.create!(level_id: 2, name: "Monster_4", enraged: false, health: 12)
-    @monster_5 = Monster.create!(level_id: 3, name: "Monster_5", enraged: false, health: 11)
-    @monster_6 = Monster.create!(level_id: 3, name: "Monster_6", enraged: true, health: 10)
+    @level_1 = Level.create!(name: "Level 1", boss: false, difficulty: 1)
+    @level_2 = Level.create!(name: "Level 2", boss: false, difficulty: 2)
+    @level_3 = Level.create!(name: "Level 3", boss: true, difficulty: 3)
+
+    @monster_1 = Monster.create!(name: "Monster_1", enraged: false, health: 10, level_id: @level_1)
+    @monster_2 = Monster.create!(name: "Monster_2", enraged: true, health: 7, level_id: @level_1)
+    @monster_3 = Monster.create!(name: "Monster_3", enraged: true, health: 8, level_id: @level_2)
+    @monster_4 = Monster.create!(name: "Monster_4", enraged: false, health: 12, level_id: @level_2)
+    @monster_5 = Monster.create!(name: "Monster_5", enraged: false, health: 11, level_id: @level_3)
+    @monster_6 = Monster.create!(name: "Monster_6", enraged: true, health: 10, level_id: @level_3)
   end
 
   describe 'index page' do

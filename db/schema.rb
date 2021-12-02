@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_12_02_035913) do
     t.integer "health"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "levels_id"
-    t.index ["levels_id"], name: "index_monsters_on_levels_id"
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_monsters_on_level_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2021_12_02_035913) do
     t.integer "damage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "roles_id"
-    t.index ["roles_id"], name: "index_weapons_on_roles_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_weapons_on_role_id"
   end
 
-  add_foreign_key "monsters", "levels", column: "levels_id"
-  add_foreign_key "weapons", "roles", column: "roles_id"
+  add_foreign_key "monsters", "levels"
+  add_foreign_key "weapons", "roles"
 end
