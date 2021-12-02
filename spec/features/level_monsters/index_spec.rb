@@ -7,7 +7,7 @@
 #     @monster_2 = Monster.create!(level_id: 1, name: "Monster_2", enraged: true, health: 7)
 #   end
 #
-#   it ' shows all the monsters in a level' do
+#   xit ' shows all the monsters in a level' do
 #    visit "/levels/#{@level_1.id}/monsters"
 #
 #    expect(page).to have_content(@monster_1.title)
@@ -15,10 +15,10 @@
 #
 #   end
 #
-#   it ' links to each monster page'
+#   xit ' links to each monster page'
 #    visit "/levels/#{@level_1.id}/monsters"
 #
 #    click_on @monster_1.name
 #
-# expect(current_path).to eq("/songs/#{monster_1.id}")
+# expect(current_path).to eq("/levels/#{monster_1.id}")
 # end
