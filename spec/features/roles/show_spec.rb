@@ -18,14 +18,12 @@ RSpec.describe 'roles show page' do
 
   it 'displays all data related to that role' do
     visit "/roles/#{@role_1.id}"
-    expect(page).to have_content("Unlcoked? #{@role_1.unlocked}")
+    expect(page).to have_content("Unlocked? #{@role_1.unlocked}")
     expect(page).to have_content("Health: #{@role_1.health}")
   end
 
   it "doesn't show data related to other roles" do
     visit "/roles/#{@role_1.id}"
     expect(page).to_not have_content(@role_2.name)
-    expect(page).to_not have_content("Unlcoked: #{@role_2.unlocked}")
-    expect(page).to_not have_content("Health: #{@role_2.health}")
   end
 end

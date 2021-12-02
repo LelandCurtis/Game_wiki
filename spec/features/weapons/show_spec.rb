@@ -32,8 +32,6 @@ RSpec.describe 'weapons show page' do
 
   it "doesn't show data related to other weapons" do
     visit "/weapons/#{@weapon_1.id}"
-    expect(page).to_not have_content("Ranged Attack?: #{@weapon_2.ranged_attack}")
-    expect(page).to_not have_content("Fire Rate: #{@weapon_2.fire_rate}")
-    expect(page).to_not have_content("Damage: #{@weapon_2.damage}")
+    expect(page).to_not have_content(@weapon_2.name)
   end
 end
