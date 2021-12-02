@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 levels = [
-  [1, "Level_1", false, 5],
-  [2, "Level_2", false, 10],
-  [3, "Level_3", true, 15]
+  ["Level_1", false, 5],
+  ["Level_2", false, 10],
+  ["Level_3", true, 15]
 ]
 #Level.create(name: "Level 1", boss: false, difficulty: 5)
 #Level.create(name: "Level 2", boss: false, difficulty: 10)
@@ -25,9 +25,9 @@ monsters = [
 ]
 
 roles = [
-  [1, 'role_1', true, 20],
-  [2, 'role_2', true, 25],
-  [3, 'role_3', false, 30]
+  ['role_1', true, 20],
+  ['role_2', true, 25],
+  ['role_3', false, 30]
 ]
 
 weapons = [
