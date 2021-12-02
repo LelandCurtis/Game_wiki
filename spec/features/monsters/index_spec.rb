@@ -27,15 +27,4 @@ RSpec.describe 'Monsters pages', type: :feature do
       expect(page).to have_content(@monster_6.name)
     end
   end
-
-  describe  'show page' do
-    it "shows all the data related to corrosponding monster " do
-      visit "/monsters/#{@monster_1.id}"
-
-      expect(page).to have_content(@monster_1.level_id)
-      expect(page).to have_content(@monster_1.name)
-      expect(page).to have_content(@monster_1.enraged)
-      expect(page).to have_content(@monster_1.health)
-    end
-  end
 end
