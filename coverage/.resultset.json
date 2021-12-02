@@ -248,6 +248,8 @@
           1,
           1,
           1,
+          1,
+          1,
           null
         ]
       },
@@ -302,13 +304,12 @@
           null
         ]
       },
-      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/roles_spec.rb": {
+      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/roles/index_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
-          1,
           3,
           3,
           3,
@@ -328,22 +329,21 @@
           1,
           1,
           1,
-          null,
-          null,
-          1,
-          0,
-          null,
           null,
           null
         ]
       },
-      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/weapons_spec.rb": {
+      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/roles/show_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/weapons/index_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
-          1,
           3,
           3,
           3,
@@ -373,9 +373,13 @@
           1,
           1,
           1,
-          null,
           null,
           null
+        ]
+      },
+      "/Users/lelandcurtis/turing/2mod/game_wiki/spec/features/weapons/show_spec.rb": {
+        "lines": [
+
         ]
       },
       "/Users/lelandcurtis/turing/2mod/game_wiki/spec/models/level_spec.rb": {
@@ -512,6 +516,6 @@
         ]
       }
     },
-    "timestamp": 1638480565
+    "timestamp": 1638481384
   }
 }
