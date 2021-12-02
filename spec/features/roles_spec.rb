@@ -27,7 +27,5 @@ RSpec.describe 'all pages related to roles' do
     xit 'shows every record' do
       visit '/roles'
     end
-
-
   end
 end
