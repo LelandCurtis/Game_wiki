@@ -14,20 +14,6 @@ RSpec.describe 'Monsters pages', type: :feature do
     @monster_6 = Monster.create!(name: "Monster_6", enraged: true, health: 10, level_id: @level_3.id)
   end
 
-  describe 'index page' do
-    it "list all the monsters" do
-      visit '/monsters'
-
-      expect(page).to have_content('Monsters')
-      expect(page).to have_content(@monster_1.name)
-      expect(page).to have_content(@monster_2.name)
-      expect(page).to have_content(@monster_3.name)
-      expect(page).to have_content(@monster_4.name)
-      expect(page).to have_content(@monster_5.name)
-      expect(page).to have_content(@monster_6.name)
-    end
-  end
-
   describe  'show page' do
     it "shows all the data related to corrosponding monster " do
       visit "/monsters/#{@monster_1.id}"
