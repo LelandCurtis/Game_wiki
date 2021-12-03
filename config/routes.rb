@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
   get '/roles/:role_id/weapons', to: 'role_weapons#index'
+  get '/levels/:level_id/monsters', to: 'level_monsters#index'
 end
