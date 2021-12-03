@@ -1,0 +1,9 @@
+<h1><%= "Weapons Available To #{@role.name} :"%></h1>
+<br>
+<% @weapons.each do |weapon| %>
+  <h3><%= weapon.name %></h3>
+  <p><%= "Ranged Attack? #{weapon.ranged_attack}" %></p>
+  <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
+  <p><%= "Damage: #{weapon.damage}" %></p>
+  <br>
+<% end %>
