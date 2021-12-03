@@ -250,12 +250,49 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
       "/Users/ericchon/turing/2mod/projects/game_wiki/app/helpers/application_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/ericchon/turing/2mod/projects/game_wiki/spec/features/levels/monsters/index_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
           null
         ]
       },
@@ -548,6 +585,10 @@
           1,
           null,
           1,
+          2,
+          null,
+          1,
+          null,
           null,
           null
         ]
@@ -575,6 +616,16 @@
       "/Users/ericchon/turing/2mod/projects/game_wiki/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/ericchon/turing/2mod/projects/game_wiki/app/controllers/level_monsters_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -618,6 +669,6 @@
         ]
       }
     },
-    "timestamp": 1638484469
+    "timestamp": 1638490703
   }
 }
