@@ -14,11 +14,5 @@ RSpec.describe Role, type: :model do
       @weapon_5 = Weapon.create!(name: 'weapon_5', ranged_attack: false, fire_rate: 1.0, damage: 80, role_id: @role_3.id)
       @weapon_6 = Weapon.create!(name: 'weapon_6', ranged_attack: true, fire_rate: 0.5, damage: 20, role_id: @role_3.id)
     end
-
-    describe ' ##get_weapons' do
-      it 'returns all weapons associated with given role_id.' do
-        expect(Role.get_weapons(@role_1.id)).to eq([@weapon_1, @weapon_2])
-      end
-    end
   end
 end
