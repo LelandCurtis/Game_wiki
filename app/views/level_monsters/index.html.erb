@@ -1,4 +1,5 @@
 <% @monsters.each do |monster| %>
-  <%= link_to monster.name, "/levels/#{monster.id}" %>
+
+<%= link_to monster.name, "/levels/#{monster.level_id}" %>
 <% end %>
 <p>Monsters <%= @monsters.name %></p>
