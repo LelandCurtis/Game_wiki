@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Role, type: :model do
+
   describe 'class methods' do
     before :each do
       @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
@@ -15,4 +16,12 @@ RSpec.describe Role, type: :model do
       @weapon_6 = Weapon.create!(name: 'weapon_6', ranged_attack: true, fire_rate: 0.5, damage: 20, role_id: @role_3.id)
     end
   end
+
+  it {should have_many :weapons}
+
+  describe 'instance methods' do
+    
+  end
+  # pending "add some examples to (or delete) #{__FILE__}"
+
 end

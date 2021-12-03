@@ -17,17 +17,4 @@ require 'rails_helper'
       expect(page).to have_content(@level_3.name)
     end
   end
-
-  describe 'show page' do
-    it "shows all the data related to corrosponding level " do
-      visit "/levels/#{@level_1.id}"
-
-      expect(page).to have_content(@level_1.name)
-      expect(page).to have_content(@level_1.boss)
-      expect(page).to have_content(@level_1.difficulty)
-      # expect(page).to have_content(@level_1.created_at)
-      # expect(page).to have_content(@level_1.updated_at)
-    end
-  end
-
  end

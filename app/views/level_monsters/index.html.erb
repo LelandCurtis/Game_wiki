@@ -1,0 +1,8 @@
+<% @monsters.each do |monster| %>
+
+<%= link_to monster.name, "/levels/#{monster.level_id}" %>
+
+<p><%= "Enraged? #{monster.enraged}" %></p>
+<p><%= "Difficulty #{monster.health}" %></p>
+
+<% end %>
