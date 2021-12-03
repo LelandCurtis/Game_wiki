@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   def index
-    @roles = Role.all
+    @roles = Role.all.order(:created_at)
   end
 
   def show

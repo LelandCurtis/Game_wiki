@@ -25,9 +25,9 @@ RSpec.describe 'roles index page' do
 
   it 'displays each in the order it was created.' do
     visit '/roles'
-    Role.find(@role_2.id).destroy
+    Role.destroy(@role_2.id)
     @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
-
+    visit current_path
     item_1 = @role_1.name
     item_2 = @role_2.name
     item_3 = @role_3.name
