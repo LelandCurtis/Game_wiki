@@ -2,5 +2,5 @@
 <br>
 <% @levels.each do |level| %>
   <h3><%= link_to level.name, '/levels/:id' %></h3>
-  <p> : <%= level.created_at %></p>
+  <p> Level created on: <%= level.created_at %></p>
 <% end %>

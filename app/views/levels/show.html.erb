@@ -1,4 +1,5 @@
 <h1> <%= @level.name %> </h1>
 <p> Boss: <%= @level.boss %></p>
 <p> Difficulty: <%= @level.difficulty %></p>
+<p> Number of monsters in level: <%=  "#{@count_of_monsters_level}" %></p>
 <p><%= link_to "Monsters", '/levels/:id/monsters'%> </p>
