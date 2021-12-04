@@ -37,8 +37,8 @@ RSpec.describe 'roles show page' do
 
   it 'has a link to the role_weapons index page associated with the role' do
     visit "/roles/#{@role_1.id}"
-    expect(page).to have_link("Available Weapons")
-    click_link "Available Weapons"
+    expect(page).to have_link("Weapons:")
+    click_link "Weapons:"
     expect(current_path).to eq("/roles/#{@role_1.id}/weapons")
   end
 end
