@@ -14,6 +14,10 @@ RSpec.describe 'Levels monsters index' do
     @monster_6 = @level_3.monsters.create!(name: "Monster_6", enraged: true, health: 10, level_id: @level_3.id)
   end
 
+  it 'routes properly' do
+    visit "/levels/#{@level_1.id}/monsters"
+  end
+
   it ' shows all the monsters in a level' do
    visit "/levels/#{@level_1.id}/monsters"
 
@@ -22,11 +26,11 @@ RSpec.describe 'Levels monsters index' do
 
   end
 
-  xit ' links to each monster page' do
+  it ' links to each monster page' do
    visit "/levels/#{@level_1.id}/monsters"
 
    click_on @monster_1.name
 
-   expect(current_path).to eq("/levels/#{@monster_1.id}")
+   expect(current_path).to eq("/levels/#{@monster_1.level_id}")
   end
 end

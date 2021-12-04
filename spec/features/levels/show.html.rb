@@ -7,7 +7,6 @@ require 'rails_helper'
      @level_3 = Level.create!(name: "Level 3", boss: true, difficulty: 3)
    end
 
-   describe 'show page' do
      it "shows all the data related to corrosponding level " do
        visit "/levels/#{@level_1.id}"
 
@@ -15,5 +14,10 @@ require 'rails_helper'
        expect(page).to have_content(@level_1.boss)
        expect(page).to have_content(@level_1.difficulty)
      end
-   end
+
+     it "returns the number of monsters on a level" do
+       visit "/levels/#{@level_1.id}"
+
+       expect(page).to have_content(@level_1.monsters.count)
+     end
  end
