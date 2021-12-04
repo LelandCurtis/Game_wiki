@@ -26,4 +26,9 @@ RSpec.describe 'roles show page' do
     visit "/roles/#{@role_1.id}"
     expect(page).to_not have_content(@role_2.name)
   end
+
+  it 'shows the count of weapons associated with this role' do
+    visit "/roles/#{@role_1.id}"
+    expect(page).to have_content(@role_1.weapons.count)
+  end
 end
