@@ -1,5 +1,6 @@
 <h1>Levels</h1>
 <br>
 <% @levels.each do |level| %>
-  <h3><%= level.name %></h3>
+  <h3><%= link_to level.name, '/levels/:id' %></h3>
+  <p> : <%= level.created_at %></p>
 <% end %>

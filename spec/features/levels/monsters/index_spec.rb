@@ -14,6 +14,10 @@ RSpec.describe 'Levels monsters index' do
     @monster_6 = @level_3.monsters.create!(name: "Monster_6", enraged: true, health: 10, level_id: @level_3.id)
   end
 
+  it 'routes properly' do
+    visit "/levels/#{@level_1.id}/monsters"
+  end
+
   it ' shows all the monsters in a level' do
    visit "/levels/#{@level_1.id}/monsters"
 

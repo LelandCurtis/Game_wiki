@@ -7,14 +7,31 @@ require 'rails_helper'
      @level_3 = Level.create!(name: "Level 3", boss: true, difficulty: 3)
    end
 
-   describe 'index page' do
-    it "list all the levels" do
-      visit '/levels'
+  it "list all the levels" do
+    visit '/levels'
 
-      expect(page).to have_content('Levels')
-      expect(page).to have_content(@level_1.name)
-      expect(page).to have_content(@level_2.name)
-      expect(page).to have_content(@level_3.name)
-    end
+    expect(page).to have_content('Levels')
+    expect(page).to have_content(@level_1.name)
+    expect(page).to have_content(@level_2.name)
+    expect(page).to have_content(@level_3.name)
+  end
+
+  it 'deletes and reorders the levels for the test' do
+    visit '/levels'
+    Level.destroy(@level_2.id)
+    @level_2 = Level.create!(name: "Level 2", boss: false, difficulty: 2)
+    visit current_path
+    level_1_name = @level_1.name
+    level_2_name = @level_2.name
+    level_3_name = @level_3.name
+    expected = [level_1_name, level_3_name, level_2_name]
+    expect(page.all(:css, 'h3').map(&:text).split('\n')[0]).to eq(expected)
+  end
+
+  it 'shows that the page is showing the created_at times' do
+    visit '/levels'
+    expect(page).to have_content(@level_1.created_at)
+    expect(page).to have_content(@level_2.created_at)
+    expect(page).to have_content(@level_3.created_at)
   end
  end

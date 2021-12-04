@@ -1,6 +1,6 @@
 class LevelsController < ApplicationController
   def index
-    @levels = Level.all
+    @levels = Level.all.order(:created_at)
   end
 
   def show
