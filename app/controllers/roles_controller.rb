@@ -5,5 +5,6 @@ class RolesController < ApplicationController
 
   def show
     @role = Role.find(params[:id])
+    @role_weapons_count = @role.weapons.count
   end
 end
