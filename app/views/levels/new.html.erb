@@ -1,0 +1,14 @@
+<h1>Creating new level</h1>
+<%= form_with url: '/levels', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :boss %>
+  <%= form.select :boss, [['False',false], ['True', true]] %>
+  <br>
+  <%= form.label :difficulty %>
+  <%= form.number_field :difficulty %>
+  <br>
+  <%= form.submit "Create Level" %>
+
+<% end %>

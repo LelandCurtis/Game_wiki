@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/levels', to: 'levels#index'
   get '/levels/new', to: 'levels#new'
   get '/levels/:id', to: 'levels#show'
+  post '/levels', to: 'levels#create'
   get '/monsters', to: 'monsters#index'
   get '/monsters/:id', to: 'monsters#show'
   get '/roles', to: 'roles#index'

@@ -10,10 +10,12 @@ RSpec. describe 'levels creation' do
   it "can create a new Level" do
     visit '/levels/new'
 
-    fill_in("Name", with: "Level 4")
+    fill_in('Name', with: "Level_4")
+    fill_in('Difficulty', with: 20)
+    select("True", from: 'Boss')
     click_button('Create Level')
-    new_level_id = Level.last.id
-    expect(current_path).to eq("/levels/#{new_level_id}")
-    expect(page).to have_content("Level 4")
+
+    expect(current_path).to eq("/levels")
+    expect(page).to have_content("Level_4")
   end
 end
