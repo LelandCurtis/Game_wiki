@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec. describe 'levels creation' do
-  it "links to the new page from the artist index" do
+RSpec.describe 'levels creation' do
+  it "links to the new page from the levels index" do
     visit '/levels'
     click_link("New Level")
     expect(current_path).to eq('/levels/new')
