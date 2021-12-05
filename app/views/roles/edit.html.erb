@@ -1,0 +1,8 @@
+<%= form_with url: "/roles/#{@role.id}/edit", method: :patch, local: true do |form|  %>
+  <%= form.label :name %>
+  <%= form.text_field :name, :id => 'name'%>
+  <%= form.label :unblocked %>
+  <%= form.select :unblocked, [["False", false], ["True", true], :id => 'unblocked'] %>
+  <%= form.label :health %>
+  <%= form.number_field :health, :id => 'health' %>
+<%= end %>

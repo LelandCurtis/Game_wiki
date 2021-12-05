@@ -18,6 +18,7 @@ class RolesController < ApplicationController
   end
 
   def edit
-
+    @role = Role.find(params[:role_id])
+    redirect_to "/roles/#{@role.id}"
   end
 end
