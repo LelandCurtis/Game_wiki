@@ -22,7 +22,7 @@ RSpec.describe 'weapons create' do
     visit "/roles/#{@role_1.id}/weapons"
     expect(page).to have_link('Create New Weapon')
     click_link "Create New Weapon"
-    expect(current_page).to eq("/roles/#{@role_1.id}/weapons/new")
+    expect(current_path).to eq("/roles/#{@role_1.id}/weapons/new")
   end
 
   it 'has text input field for name' do
