@@ -14,6 +14,6 @@ class LevelsController < ApplicationController
 
   def create
     create_level = Level.create(name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
-    redirect_to "'/levels/:level_id/monsters'"
+    redirect_to "/levels"
   end
 end
