@@ -26,11 +26,4 @@ RSpec.describe 'Levels monsters index' do
 
   end
 
-  xit ' links to each monster page' do
-   visit "/levels/#{@level_1.id}/monsters"
-
-   click_on @monster_1.name
-
-   expect(current_path).to eq("/levels/#{@monster_1.level_id}")
-  end
 end
