@@ -8,5 +8,7 @@ class LevelsController < ApplicationController
     @count_of_monsters_level = @level.monsters.count
   end
 
-  de
+  def new
+
+  end
 end
