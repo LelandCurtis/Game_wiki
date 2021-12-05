@@ -16,4 +16,14 @@ class LevelsController < ApplicationController
     create_level = Level.create(name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
     redirect_to "/levels"
   end
+
+  def edit
+    @level = Level.find(params[:level_id])
+  end
+
+  def update
+    @level = Level.find(params[:level_id])
+    Level.update(name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
+    redirect_to "/levels/#{@level.id}"
+  end
 end

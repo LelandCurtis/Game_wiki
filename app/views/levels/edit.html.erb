@@ -1,0 +1,13 @@
+<h1>Updating level</h1>
+<%= form_with url: "/levels/#{@level.id}", method: :PATCH, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :boss %>
+  <%= form.select :boss, [['False',false], ['True', true]] %>
+  <br>
+  <%= form.label :difficulty %>
+  <%= form.number_field :difficulty %>
+  <br>
+  <%= form.submit "Update Level" %>
+<% end %>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/levels/new', to: 'levels#new'
   get '/levels/:id', to: 'levels#show'
   post '/levels', to: 'levels#create'
+  get '/levels/:level_id/edit', to: 'levels#edit'
+  patch 'levels/:level_id', to: 'levels#update'
   get '/monsters', to: 'monsters#index'
   get '/monsters/:id', to: 'monsters#show'
   get '/roles', to: 'roles#index'
