@@ -5,6 +5,13 @@ RSpec.describe 'roles#new' do
     visit '/roles/new'
   end
 
+  it 'has a link from the roles index page' do
+    visit '/roles'
+    expect(page).to have_link("Create New Role")
+    click_link "Create New Role"
+    expect(current_path).to eq('/roles/new')
+  end
+
   it 'has a form' do
     visit '/roles/new'
     expect(page).to have_css('form')
