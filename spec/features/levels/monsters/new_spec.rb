@@ -11,4 +11,16 @@ RSpec.describe 'Monsters creation' do
     click_link("New Monster")
     expect (current_path).to eq("/levels/#{@level_1.id}/monsters/new")
   end
+
+  xit "can create a new monster" do
+    visit "/levels/#{@level_1.id}/monsters/new"
+
+    fill_in('Name', with: "Monster_4")
+    select("True", from: 'Enraged')
+    fill_in('Health', with: 34)
+    click_button('Create Monster')
+
+    expect(current_path).to eq("/levels/#{@level_1.id}/monsters")
+    expect(page).to have_content("Monster_4")
+  end
 end
