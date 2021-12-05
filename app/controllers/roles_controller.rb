@@ -14,6 +14,6 @@ class RolesController < ApplicationController
 
   def create
     role = Role.create(name: params[:name], unlocked: params[:unlocked], health: params[:health])
-    redirect_to "/roles/#{role.id}"
+    redirect_to "/roles"
   end
 end

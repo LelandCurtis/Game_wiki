@@ -48,7 +48,8 @@ RSpec.describe 'roles#new' do
 
     click_button('submit')
     role_id = Role.last.id
-    expect(current_path).to eq("/roles/#{role_id}")
+    expect(current_path).to eq("/roles")
     expect(page).to have_content("New Role")
+    save_and_open_page
   end
 end
