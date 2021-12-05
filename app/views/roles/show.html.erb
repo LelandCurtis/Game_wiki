@@ -2,5 +2,5 @@
 <br>
 <h3><%= "Unlocked? #{@role.unlocked}" %></h3>
 <h3><%= "Health: #{@role.health}" %></h3>
-<h3><%= link_to 'Weapons:', "/roles/#{@role.id}/weapons #{@role_weapons_count}" %></h3>
-<h3><%= link_to 'Update:', "roles/#{@role.id}/edit" %></h3>
+<h3><%= link_to 'Weapons:', "/roles/#{@role.id}/weapons" %></h3><h3><%= "#{@role_weapons_count}" %></h3>
+<h3><%= link_to 'Update Role:', "/#{@role.id}/edit" %></h3>
