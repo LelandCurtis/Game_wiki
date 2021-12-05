@@ -20,4 +20,11 @@ require 'rails_helper'
 
        expect(page).to have_content(@level_1.monsters.count)
      end
+
+     it 'has a link to the level_monsters index page' do
+       visit "/levels/#{@level_1.id}"
+       expect(page).to have_link("Monsters:")
+       click_link "Monsters:"
+       expect(current_path).to eq("/levels/#{@level_1.id}/monsters")
+     end
  end

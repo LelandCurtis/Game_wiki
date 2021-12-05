@@ -26,7 +26,7 @@ RSpec.describe 'Levels monsters index' do
 
   end
 
-  it ' links to each monster page' do
+  xit ' links to each monster page' do
    visit "/levels/#{@level_1.id}/monsters"
 
    click_on @monster_1.name
