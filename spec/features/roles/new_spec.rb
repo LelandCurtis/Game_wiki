@@ -38,8 +38,10 @@ RSpec.describe 'roles#new' do
     expect(page).to have_field('health', with: 100)
   end
 
-  it 'has a submit button' do
+  it 'has a submit button that redirects to roles index after new role is added' do
     visit '/roles/new'
     expect(page).to have_button('submit')
+    click_button('submit')
+    expect(current_path).to eq('/roles')
   end
 end
