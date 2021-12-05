@@ -40,13 +40,4 @@ RSpec.describe 'roles#edit' do
     expect(page).to have_content(false)
     expect(page).to have_content(25)
   end
-  #<%= form_with url: "/roles", method: :patch, local: true do |form|  %>
-  #  <%= form.label :name %>
-  #  <%= form.text_field :name%><br>
-  #  <%= form.label :unlocked %>
-  #  <%= form.select :unlocked, [['False', false], ['True', true]]%><br>
-  #  <%= form.label :health %>
-  #  <%= form.number_field :health %><br>
-  #  <%= form.submit "Update Role" %>
-  #<%= end %>```
 end
