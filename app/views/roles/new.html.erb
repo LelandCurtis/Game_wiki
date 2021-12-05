@@ -1,9 +1,9 @@
 <%= form_with url: '/roles', method: :post, local: true do |form|%>
   <%= form.label :name %>
   <%= form.text_field :name , :id => 'name'%><br>
-  <%= form.label :unlocked %>
+  <%= form.label :unlocked, :id => 'unlocked' %>
   <%= form.select :unlocked, [['False',false], ['True', true]] %><br>
-  <%= form.label :health %>
+  <%= form.label :health, :id => 'health' %>
   <%= form.number_field :health %><br>
   <%= form.submit "Create Role" %><br>
 <% end %>

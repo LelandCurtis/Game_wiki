@@ -21,21 +21,21 @@ RSpec.describe 'roles#edit' do
     @weapon_2 = Weapon.create!(name: 'weapon_2', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
   end
 
-  xit 'has a link from the role show page' do
-    visit "roles/#{@role_1.id}"
+  it 'has a link from the role show page' do
+    visit "/roles/#{@role_1.id}"
     click_link "Update Role"
-    expect(current_path).to eq("roles/#{@role_1.id}/edit")
+    expect(current_path).to eq("/roles/#{@role_1.id}/edit")
   end
 
-  xit 'has a form that allows editing of all attributes and redirects to updated show page when form is submitted' do
-    visit "roles/#{@role_1.id}/edit"
+  it 'has a form that allows editing of all attributes and redirects to updated show page when form is submitted' do
+    visit "/roles/#{@role_1.id}/edit"
 
     fill_in "name", with: "Updated Name"
     select "False", from: "unlocked"
     fill_in "health", with: 25
     click_button "Update"
 
-    expect(current_path).to eq("roles/#{@role_1.id}")
+    expect(current_path).to eq("/roles/#{@role_1.id}")
     expect(page).to have_content("Updated Name")
     expect(page).to have_content(false)
     expect(page).to have_content(25)
