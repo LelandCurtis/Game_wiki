@@ -33,6 +33,7 @@ RSpec.describe 'roles#new' do
 
   it 'has a submit button' do
     visit '/roles/new'
-    expect(page).to have_field('submit')
+    expect(page).to have_button('submit')
+    save_and_open_page
   end
 end
