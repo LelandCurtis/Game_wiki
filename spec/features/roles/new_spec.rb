@@ -7,6 +7,6 @@ RSpec.describe 'roles#new' do
 
   it 'has a form' do
     visit '/roles/new'
-    page.should have_css('form')
+    expecyt(page).to have_css('form')
   end
 end

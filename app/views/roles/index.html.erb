@@ -1,9 +1,11 @@
 <h1>Roles</h1>
 <br>
+<div class="roles">
 <% @roles.each do |role| %>
   <div class="role"><h3><%= role.name %></h3>
     <p> : <%= role.created_at %></p>
   </div>
 <% end %>
+</div>
 <br>
 <h3><%= link_to 'Create New Role', '/roles/new' %></h3>

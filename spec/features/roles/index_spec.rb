@@ -32,7 +32,7 @@ RSpec.describe 'roles index page' do
     item_2 = @role_2.name
     item_3 = @role_3.name
     expected = [item_1, item_3, item_2]
-    expect(page.all(:css, 'h3').map(&:text).split('\n')[0]).to eq(expected)
+    expect(page.find(:css, '.roles').all(:css, 'h3').map(&:text).split('\n')[0]).to eq(expected)
   end
 
   it 'displays when it was created' do
