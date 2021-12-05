@@ -1,0 +1,30 @@
+<%= form_with url: '/roles', method: :post, local: true do |form|%>
+  <%= form.label :name %>
+  <%= form.text_field :name , :id => 'name'%><br>
+  <%= form.label :unlocked %>
+  <%= form.select :unlocked, [['False',false], ['True', true]] %><br>
+  <%= form.label :health %>
+  <%= form.number_field :health %><br>
+  <%= form.submit "Create Role" %><br>
+<% end %>
+<!--<fieldset>
+  <legend>Create New Role</legend>
+    <form class="create_role" action="new.html" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value=""><br>
+    <br>
+    <label for="unlocked">Unlocked?</label>
+    <select class="unlocked" id = 'unlocked' name="unlocked">
+      <option value= false>False</option>
+      <option value= true>True</option>
+    </select>
+    <br>
+    <br>
+    <label for="health">Health</label>
+    <input type="number" id='health' name="health" value="">
+    <br>
+    <br>
+    <input type="submit" id="submit" name="submit" value="Submit">
+    <br>
+  </form>
+</fieldset>-->
