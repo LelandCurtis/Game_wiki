@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/monsters', to: 'monsters#index'
   get '/monsters/:id', to: 'monsters#show'
   get '/roles', to: 'roles#index'
+  get '/roles/new', to: 'roles#new'
   get '/roles/:id', to: 'roles#show'
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
