@@ -16,4 +16,8 @@ class RolesController < ApplicationController
     role = Role.create(name: params[:name], unlocked: params[:unlocked], health: params[:health])
     redirect_to "/roles"
   end
+
+  def edit
+
+  end
 end

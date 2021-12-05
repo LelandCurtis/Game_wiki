@@ -1,6 +1,6 @@
-require rails_helper
+require 'rails_helper'
 
-RSpec describe 'roles#edit' do
+RSpec.describe 'roles#edit' do
 
 # As a visitor
 # When I visit a parent show page
@@ -30,7 +30,7 @@ RSpec describe 'roles#edit' do
   it 'has a form that allows editing of all attributes and redirects to updated show page when form is submitted' do
     visit "roles/#{@role_1.id}/edit"
 
-    fill_in "name" with: "Updated Name"
+    fill_in "name", with: "Updated Name"
     select "False", from: "unlocked"
     fill_in "health", with: 25
     click_button "Update"

@@ -35,7 +35,6 @@ RSpec.describe 'roles#new' do
 
   it 'has a submit button that redirects to roles index after new role is added' do
     visit '/roles/new'
-    save_and_open_page
     expect(page).to have_button('Create Role')
 
     fill_in "name", with: 'New Role'
