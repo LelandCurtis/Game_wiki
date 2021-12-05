@@ -24,7 +24,6 @@ RSpec.describe 'roles#edit' do
   it 'has a link from the role show page' do
     visit "/roles/#{@role_1.id}"
     click_link "Update Role"
-    save_and_open_page
     expect(current_path).to eq("/roles/#{@role_1.id}/edit")
   end
 
