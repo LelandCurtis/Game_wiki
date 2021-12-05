@@ -9,6 +9,10 @@ class RolesController < ApplicationController
   end
 
   def new
-    
+
+  end
+
+  def create
+    Role.create(name: params[:name], unlocked: params[:unlocked], health: params[:health])
   end
 end

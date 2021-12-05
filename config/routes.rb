@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/roles', to: 'roles#index'
   get '/roles/new', to: 'roles#new'
   get '/roles/:id', to: 'roles#show'
+  post '/roles/new', to: 'roles#create'
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
   get '/roles/:role_id/weapons', to: 'role_weapons#index'

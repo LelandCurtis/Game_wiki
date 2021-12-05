@@ -41,7 +41,14 @@ RSpec.describe 'roles#new' do
   it 'has a submit button that redirects to roles index after new role is added' do
     visit '/roles/new'
     expect(page).to have_button('submit')
+
+    fill_in "name", with: 'New Role'
+    select "True", from: 'unlocked'
+    fill_in "health", with: 100
+
     click_button('submit')
-    expect(current_path).to eq('/roles')
+    role_id = Role.last.id
+    expect(current_path).to eq("/roles/#{role_id}")
+    expect(page).to have_content("New Role")
   end
 end
