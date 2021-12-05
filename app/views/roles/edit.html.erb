@@ -1,4 +1,4 @@
-<%= form_with url: '/roles', method: :PATCH, local: true do |form| %>
+<%= form_with url: "/roles/#{@role.id}", method: :PATCH, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name, :id => 'name' %>
   <%= form.label :unlocked %>
