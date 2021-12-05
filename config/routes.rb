@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/monsters/:id', to: 'monsters#show'
   get '/roles', to: 'roles#index'
   get '/roles/new', to: 'roles#new'
-  get '/roles/:role_id', to: 'roles#show'
+  get '/roles/:id', to: 'roles#show'
   post '/roles', to: 'roles#create'
   get '/roles/:role_id/edit', to: 'roles#edit'
   patch '/roles/:role_id', to: 'roles#show'
