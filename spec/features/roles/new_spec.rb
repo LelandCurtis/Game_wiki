@@ -24,6 +24,13 @@ RSpec.describe 'roles#new' do
     expect(page).to have_field('unlocked', with: 'true')
   end
 
+  it 'has a health input as number' do
+    visit '/roles/new'
+    expect(page.find('input#health').visible?).to eq(true)
+    fill_in "health", with: 100
+    expect(page).to have_field('health', with: 100)
+  end
+
   it 'has a submit button' do
 
   end
