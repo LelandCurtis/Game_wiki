@@ -5,6 +5,9 @@ RSpec.describe 'roles show page' do
     @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
     @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
     @role_3 = Role.create!(name: 'role_3', unlocked: false, health: 30)
+
+    @weapon_1 = Weapon.create!(name: 'weapon_1', ranged_attack: true, fire_rate: 0.5, damage: 30, role_id: @role_1.id)
+    @weapon_2 = Weapon.create!(name: 'weapon_2', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
   end
 
   it 'routes properly' do
@@ -30,5 +33,12 @@ RSpec.describe 'roles show page' do
   it 'shows the count of weapons associated with this role' do
     visit "/roles/#{@role_1.id}"
     expect(page).to have_content(@role_1.weapons.count)
+  end
+
+  it 'has a link to the role_weapons index page associated with the role' do
+    visit "/roles/#{@role_1.id}"
+    expect(page).to have_link("Weapons:")
+    click_link "Weapons:"
+    expect(current_path).to eq("/roles/#{@role_1.id}/weapons")
   end
 end
