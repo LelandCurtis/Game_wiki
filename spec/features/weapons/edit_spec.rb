@@ -21,8 +21,9 @@ RSpec.describe 'edit weapon' do
 
     fill_in "name", with: "New name"
     select "False", from: 'ranged_attack'
-    fill_in "fire-rate", with: 1
+    fill_in "fire_rate", with: 1
     fill_in "damage", with: 45
+    click_button "Update Weapon"
 
     expect(page).to have_content("New name")
     expect(page).to have_content(false)
