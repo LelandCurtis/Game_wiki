@@ -1,0 +1,17 @@
+<fieldset>
+<legend>Updating Monster</legend>
+<%= form_with url: "/monsters/#{@monster.id}", method: :PATCH, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, :value => @monster.name %>
+  <br>
+  <%= form.label :enraged %>
+  <%= form.select :enraged, [['False',false], ['True', true]], :value => @monster.enraged  %>
+  <br>
+  <%= form.label :health %>
+  <%= form.number_field :health, :value => @monster.health  %>
+  <br>
+  <% form.number_field :level_id, :value => @monster.level_id  %>
+  <br>
+  <%= form.submit "Update Monster" %>
+<% end %>
+</fieldset
