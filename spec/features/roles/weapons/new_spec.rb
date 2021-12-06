@@ -66,5 +66,6 @@ RSpec.describe 'weapons create' do
     weapon_id = Weapon.last.id
     expect(current_path).to eq("/roles/#{@role_1.id}/weapons")
     expect(page).to have_content("New Weapon")
+    save_and_open_page
   end
 end

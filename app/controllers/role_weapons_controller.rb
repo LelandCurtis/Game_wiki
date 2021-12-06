@@ -5,6 +5,6 @@ class RoleWeaponsController < ApplicationController
   end
 
   def new
-
+    @role = Role.find(params[:role_id])
   end
 end
