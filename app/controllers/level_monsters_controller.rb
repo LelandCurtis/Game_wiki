@@ -9,8 +9,10 @@ class LevelMonstersController < ApplicationController
   end
 
   def create
-      @level = Level.find(params[:level_id])
-    create_level_monster = Monster.create(name: params[:name], enraged: params[:enraged], health: params[:health], level_id: @level.id )
+    @level = Level.find(params[:level_id])
+    @level.monsters.create(name: params[:name], enraged: params[:enraged], health: params[:health])
     redirect_to "/levels/#{@level.id}/monsters"
   end
+
+  
 end

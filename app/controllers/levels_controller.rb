@@ -13,7 +13,7 @@ class LevelsController < ApplicationController
   end
 
   def create
-    create_level = Level.create(name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
+    create_level = Level.create(level_params)
     redirect_to "/levels"
   end
 
@@ -23,7 +23,13 @@ class LevelsController < ApplicationController
 
   def update
     @level = Level.find(params[:level_id])
-    Level.update(@level.id, name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
+    @level.update(level_params)
     redirect_to "/levels/#{@level.id}"
+  end
+
+  private
+
+  def level_params
+    params.permit(:name, :boss, :difficulty)
   end
 end
