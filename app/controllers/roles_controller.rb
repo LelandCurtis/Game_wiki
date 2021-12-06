@@ -23,7 +23,11 @@ class RolesController < ApplicationController
 
   def update
     @role = Role.find(params[:role_id])
-    Role.update(@role.id, name: params[:name], unlocked: params[:unlocked], health: params[:health])
+    @role.update(role_params)
     redirect_to "/roles/#{@role.id}"
+  end
+
+  def role_params
+    params.permit(:name, :unlocked, :health)
   end
 end
