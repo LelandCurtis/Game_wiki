@@ -1,13 +1,15 @@
-<h1>Updating level</h1>
+<fieldset>
+<legend>Updating level</legend>
 <%= form_with url: "/levels/#{@level.id}", method: :PATCH, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, :value => @level.name %>
   <br>
   <%= form.label :boss %>
-  <%= form.select :boss, [['False',false], ['True', true]] %>
+  <%= form.select :boss, [['False',false], ['True', true]], :value => @level.boss  %>
   <br>
   <%= form.label :difficulty %>
-  <%= form.number_field :difficulty %>
+  <%= form.number_field :difficulty, :value => @level.difficulty  %>
   <br>
   <%= form.submit "Update Level" %>
 <% end %>
+</fieldset

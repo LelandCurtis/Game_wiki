@@ -1,5 +1,6 @@
-<h1>Creating new Monster</h1>
-<%= form_with url: 'levels/:level_id/monsters', method: :post, local: true do |form| %>
+<fieldset>
+<legend>Creating new Monster</legend>
+<%= form_with url: "/levels/#{@level.id}/monsters", method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <br>
@@ -12,3 +13,4 @@
   <%= form.submit "Create Monster" %>
 
 <% end %>
+</fieldset>
