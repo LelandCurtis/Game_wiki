@@ -1,11 +1,14 @@
-<%= form_with url: "/roles/#{@role.id}/weapons", method: :post, local: true do |form|%>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :ranged_attack %>
-  <%= form.select :ranged_attack, [['False', false], ['True', true]] %>
-  <%= form.label :fire_rate %>
-  <%= form.number_field :fire_rate %>
-  <%= form.label :damange %>
-  <%= form.number_field :damage %>
-  <%= form.submit "Create Weapon" %>
-<% end %>
+<fieldset>
+  <legend>Create New Weapon</legend>
+  <%= form_with url: "/roles/#{@role.id}/weapons", method: :post, local: true do |form|%>
+    <%= form.label :name %>
+    <%= form.text_field :name %><br>
+    <%= form.label :ranged_attack %>
+    <%= form.select :ranged_attack, [['False', false], ['True', true]] %><br>
+    <%= form.label :fire_rate %>
+    <%= form.number_field :fire_rate %><br>
+    <%= form.label :damange %>
+    <%= form.number_field :damage %><br>
+    <%= form.submit "Create Weapon" %>
+  <% end %>
+</fieldset>
