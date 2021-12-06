@@ -1,5 +1,6 @@
 <h1>Monsters</h1>
 <br>
 <% @monsters.each do |monster| %>
-  <h3><%= monster.name %></h3>
+  <h2><%= link_to monster.name, "/monsters/#{monster.id}" %>  </h2>
+  <p> <%= button_to "Edit Monster", "/monsters/#{monster.id}/edit", method: :get %> </p>
 <% end %>

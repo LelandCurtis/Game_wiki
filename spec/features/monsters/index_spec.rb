@@ -26,5 +26,11 @@ RSpec.describe 'Monsters pages', type: :feature do
       expect(page).to have_content(@monster_5.name)
       expect(page).to have_content(@monster_6.name)
     end
+
+    it "links to the edit page" do
+      visit "/monsters/#{@monster_1.id}"
+      click_button "Edit Monster"
+      expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
+    end
   end
 end

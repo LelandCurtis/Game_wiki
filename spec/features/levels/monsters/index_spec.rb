@@ -23,7 +23,11 @@ RSpec.describe 'Levels monsters index' do
 
    expect(page).to have_content(@monster_1.name)
    expect(page).to have_content(@monster_2.name)
-
   end
 
+  it "links to the edit page" do
+    visit "/monsters/#{@monster_1.id}"
+    click_button "Edit Monster"
+    expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
+  end
 end
