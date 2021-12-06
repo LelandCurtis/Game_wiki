@@ -14,7 +14,7 @@ class WeaponsController < ApplicationController
   def update
     @weapon = Weapon.find(params[:id])
     @weapon.update(weapon_params)
-    redirect_to "weapons/#{@weapon.id}"
+    redirect_to "/weapons/#{@weapon.id}"
   end
 
   private
