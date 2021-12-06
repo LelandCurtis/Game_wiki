@@ -4,6 +4,6 @@
   <h3><%= weapon.name %></h3>
   <p><%= "Ranged Attack? #{weapon.ranged_attack}" %></p>
   <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
-  <p><%= "Damage: #{weapon.damage}" %></p>
-  <br>
+  <p><%= "Damage: #{weapon.damage}" %></p><br>
 <% end %>
+<%= link_to 'Create New Weapon', "/roles/#{@role.id}/weapons/new" %>
