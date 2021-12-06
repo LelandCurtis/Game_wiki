@@ -10,7 +10,14 @@ class RoleWeaponsController < ApplicationController
 
   def create
     @role = Role.find(params[:role_id])
-    @role.weapons.create(name: params[:name], ranged_attack: params[:ranged_attack], fire_rate: params[:fire_rate], damage: params[:damage])
+    @role.weapons.create(weapons_params)
     redirect_to "/roles/#{@role.id}/weapons"
+  end
+
+
+  private
+
+  def weapons_params
+    params.permit(:name, :ranged_attack, :fire_rate, :damage)
   end
 end
