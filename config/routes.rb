@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/weapons/:id', to: 'weapons#show'
   get '/roles/:role_id/weapons', to: 'role_weapons#index'
   get '/roles/:role_id/weapons/new', to: 'role_weapons#new'
+  post '/roles/:role_id/weapons', to: 'role_weapons#create'
   get '/levels/:level_id/monsters', to: 'level_monsters#index'
   get '/levels/:level_id/monsters/new', to: 'level_monsters#new'
   post '/levels/:level_id/monsters', to: 'level_monsters#create'
