@@ -27,6 +27,8 @@ class RolesController < ApplicationController
     redirect_to "/roles/#{@role.id}"
   end
 
+  private
+
   def role_params
     params.permit(:name, :unlocked, :health)
   end
