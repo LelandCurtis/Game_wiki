@@ -1,0 +1,14 @@
+<fieldset>
+  <legend>Update Weapon</legend>
+  <%= form_with url: "/weapons/#{@weapon.id}", method: :patch, local: true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, :value => @weapon.name %><br>
+    <%= form.label :ranged_attack %>
+    <%= form.select :ranged_attack, [["False", false], ["True", true]], :value => @weapon.ranged_attack %><br>
+    <%= form.label :fire_rate %>
+    <%= form.number_field :fire_rate, :value => @weapon.fire_rate %><br>
+    <%= form.label :damage %>
+    <%= form.number_field :damage, :value => @weapon.damage %><br>
+    <%= form.submit "Update Weapon" %>
+  <% end %>
+</fieldset>
