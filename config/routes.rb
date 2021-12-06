@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   patch '/roles/:role_id', to: 'roles#update'
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'
+  get '/weapons/:id/edit', to: 'weapons#edit'
   get '/roles/:role_id/weapons', to: 'role_weapons#index'
   get '/roles/:role_id/weapons/new', to: 'role_weapons#new'
   post '/roles/:role_id/weapons', to: 'role_weapons#create'

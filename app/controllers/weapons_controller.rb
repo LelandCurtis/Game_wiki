@@ -6,4 +6,8 @@ class WeaponsController < ApplicationController
   def show
     @weapon = Weapon.find(params[:id])
   end
+
+  def edit
+
+  end
 end
