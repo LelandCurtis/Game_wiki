@@ -1,7 +1,8 @@
 <h1>Levels</h1>
 <br>
 <% @levels.each do |level| %>
-  <h3><%= link_to level.name, "/levels/#{level.id}" %></h3>
+  <h3><%= link_to level.name, "/levels/#{level.id}"  %></h3>
+  <p> <%= button_to "Edit Level", "/levels/#{level.id}/edit", method: :get %> </p>
   <p> Level created on: <%= level.created_at %></p>
 <% end %>
 <br>

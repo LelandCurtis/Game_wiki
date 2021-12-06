@@ -14,7 +14,7 @@ RSpec.describe 'monsters edit' do
     expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
   end
 
-  it "can edit the levels" do
+  it "can edit the monsters" do
     visit "/monsters/#{@monster_1.id}/edit"
 
     fill_in('Name', with: "Monster_12")

@@ -34,4 +34,10 @@ require 'rails_helper'
     expect(page).to have_content(@level_2.created_at)
     expect(page).to have_content(@level_3.created_at)
   end
+
+  it "links to the edit page" do
+    visit "/levels/#{@level_1.id}"
+    click_button "Edit Level"
+    expect(current_path).to eq("/levels/#{@level_1.id}/edit")
+  end
  end

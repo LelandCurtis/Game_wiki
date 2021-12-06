@@ -18,10 +18,16 @@ RSpec.describe 'Monsters pages', type: :feature do
     it "shows all the data related to corrosponding monster " do
       visit "/monsters/#{@monster_1.id}"
 
-      
+
       expect(page).to have_content(@monster_1.name)
       expect(page).to have_content(@monster_1.enraged)
       expect(page).to have_content(@monster_1.health)
+    end
+    
+    it "links to the edit page" do
+      visit "/monsters/#{@monster_1.id}"
+      click_button "Edit Monster"
+      expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
     end
   end
 end
