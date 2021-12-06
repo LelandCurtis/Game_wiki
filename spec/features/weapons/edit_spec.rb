@@ -10,7 +10,7 @@ RSpec.describe 'edit weapon' do
     @weapon_3 = Weapon.create!(name: 'weapon_3', ranged_attack: true, fire_rate: 1.0, damage: 45, role_id: @role_2.id)
   end
 
-  it 'links from the weapons index page' do
+  it 'links from the weapons show page' do
     visit "/weapons/#{@weapon_1.id}"
     click_link "Update Weapon"
     expect(current_path).to eq("/weapons/#{@weapon_1.id}/edit")
