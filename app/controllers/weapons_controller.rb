@@ -8,6 +8,14 @@ class WeaponsController < ApplicationController
   end
 
   def edit
+    @weapon = Weapon.find(params[:id])
+    @weapon.update(weapon_params)
+    redirect "weapons/#{weapon.id}"
+  end
 
+  private
+
+  def weapon_params
+    params.permit(:name, :ranged_attack, :fire_rate, :damage)
   end
 end
