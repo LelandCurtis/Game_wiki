@@ -1,9 +1,9 @@
 <%= form_with url: "/roles/#{@role.id}", method: :PATCH, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name, :id => 'name' %><br>
+  <%= form.text_field :name, :id => 'name', :value => @role.name %><br>
   <%= form.label :unlocked %>
-  <%= form.select :unlocked, [['False',false], ['True', true]], :id => 'unlocked' %><br>
+  <%= form.select :unlocked, [['False',false], ['True', true]], :id => 'unlocked', :value => @role.unlocked %><br>
   <%= form.label :health %>
-  <%= form.number_field :health, :id => 'health' %><br>
+  <%= form.number_field :health, :id => 'health', :value => @role.health %><br>
   <%= form.button :Update%><br>
 <% end %>
