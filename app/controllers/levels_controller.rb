@@ -23,7 +23,7 @@ class LevelsController < ApplicationController
 
   def update
     @level = Level.find(params[:level_id])
-    Level.update(name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
+    Level.update(@level.id, name: params[:name], boss: params[:boss], difficulty: params[:difficulty] )
     redirect_to "/levels/#{@level.id}"
   end
 end

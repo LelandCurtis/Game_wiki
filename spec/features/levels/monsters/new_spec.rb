@@ -18,6 +18,7 @@ RSpec.describe 'Monsters creation' do
     fill_in('Name', with: "Monster_4")
     select("True", from: 'Enraged')
     fill_in('Health', with: 34)
+    fill_in('Level ID', with: 1)
     click_button('Create Monster')
 
     expect(current_path).to eq("/levels/#{@level_1.id}/monsters")

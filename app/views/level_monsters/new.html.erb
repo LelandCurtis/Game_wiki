@@ -1,5 +1,5 @@
 <h1>Creating new Monster</h1>
-<%= form_with url: 'levels/:level_id/monsters', method: :post, local: true do |form| %>
+<%= form_with url: "/levels/#{@level.id}/monsters", method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <br>
@@ -8,6 +8,9 @@
   <br>
   <%= form.label :health %>
   <%= form.number_field :health %>
+  <br>
+  <%= form.label "Level ID" %>
+  <%= form.text_field :level_id %>
   <br>
   <%= form.submit "Create Monster" %>
 
