@@ -41,4 +41,15 @@ RSpec.describe 'roles index page' do
     expect(page).to have_content(@role_2.created_at)
     expect(page).to have_content(@role_3.created_at)
   end
+
+  it 'has an edit links next to each item' do
+    visit '/roles'
+    expect(page).to have_link("Edit", :href=>"/roles/#{@role_1.id}/edit")
+    expect(page).to have_link("Edit", :href=>"/roles/#{@role_2.id}/edit")
+    expect(page).to have_link("Edit", :href=>"/roles/#{@role_3.id}/edit")
+
+    page.find_link('Edit').where('href = "/roles/#{@role_2.id}/edit"').click
+    expect(current_path).to eq("/roles/#{@role_2.id}/edit")
+
+  end
 end
