@@ -48,4 +48,13 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     click_link "Sort Index"
     expect(name_2).to appear_before(name_1, only_text: true)
   end
+
+  it 'has an edit link next to each item ' do
+    visit "/roles/#{@role_1.id}/weapons"
+    expect(page).to have_button("Edit_#{@weapon_1.id}")
+    expect(page).to have_button("Edit_#{@weapon_2.id}")
+
+    page.find_by_id("Edit_#{@weapon_1.id}").click
+    expect(current_path).to eq("/weapons/#{@weapon_1.id}/edit")
+  end
 end

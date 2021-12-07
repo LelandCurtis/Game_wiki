@@ -1,5 +1,8 @@
 <h1>Weapons</h1>
 <br>
 <% @weapons.each do |weapon| %>
-  <h3><%= weapon.name %></h3>
+  <span>
+    <h3><%= weapon.name %></h3>
+    <%= button_to 'Edit', "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
+  </span>
 <% end %>

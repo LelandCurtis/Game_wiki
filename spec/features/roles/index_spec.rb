@@ -44,12 +44,11 @@ RSpec.describe 'roles index page' do
 
   it 'has an edit links next to each item' do
     visit '/roles'
-    expect(page).to have_link("Edit", :href=>"/roles/#{@role_1.id}/edit")
-    expect(page).to have_link("Edit", :href=>"/roles/#{@role_2.id}/edit")
-    expect(page).to have_link("Edit", :href=>"/roles/#{@role_3.id}/edit")
+    expect(page).to have_button("Edit_#{@role_1.id}")
+    expect(page).to have_button("Edit_#{@role_2.id}")
+    expect(page).to have_button("Edit_#{@role_3.id}")
 
     page.find_by_id("Edit_#{@role_2.id}").click
     expect(current_path).to eq("/roles/#{@role_2.id}/edit")
-
   end
 end
