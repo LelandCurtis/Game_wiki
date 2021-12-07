@@ -40,5 +40,6 @@ RSpec.describe 'weapons show page' do
     expect(page).to have_link("Delete Weapon")
     click_link "Delete Weapon"
     expect(current_path).to eq("/weapons")
+    expect(page).to_not have_content(@weapon_1.name)
   end
 end
