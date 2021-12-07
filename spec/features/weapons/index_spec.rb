@@ -33,4 +33,18 @@ RSpec.describe 'weapons index page' do
     expect(page).to_not have_content(@weapon_2.name)
     expect(page).to_not have_content(@weapon_5.name)
   end
+
+  it 'has an edit link next to each item ' do
+    visit '/weapons'
+    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_1.id}/edit")
+    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_3.id}/edit")
+    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_4.id}/edit")
+    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_6.id}/edit")
+
+    expect(page).to_not have_link("Edit", :href => "/weapons/#{@weapon_2.id}/edit")
+    expect(page).to_not have_link("Edit", :href => "/weapons/#{@weapon_5.id}/edit")
+
+    page.find_by_id("Edit_#{@weapon_3.id}").click
+    expect(current_path).to eq("/roles/#{@role_2.id}/edit")
+  end
 end

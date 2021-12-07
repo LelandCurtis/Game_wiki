@@ -50,6 +50,5 @@ RSpec.describe 'roles index page' do
 
     page.find_by_id("Edit_#{@role_2.id}").click
     expect(current_path).to eq("/roles/#{@role_2.id}/edit")
-
   end
 end
