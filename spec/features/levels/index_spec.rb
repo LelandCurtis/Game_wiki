@@ -40,4 +40,6 @@ require 'rails_helper'
     click_button "Edit Level"
     expect(current_path).to eq("/levels/#{@level_1.id}/edit")
   end
+
+
  end

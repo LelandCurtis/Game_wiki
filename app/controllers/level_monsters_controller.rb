@@ -1,7 +1,11 @@
 class LevelMonstersController < ApplicationController
   def index
     @level = Level.find(params[:level_id])
-    @monsters = @level.monsters
+    if params[:by_name]
+      @monsters = @level.monsters_by_name
+    else
+      @monsters = @level.monsters
+    end
   end
 
   def new
@@ -14,5 +18,5 @@ class LevelMonstersController < ApplicationController
     redirect_to "/levels/#{@level.id}/monsters"
   end
 
-  
+
 end
