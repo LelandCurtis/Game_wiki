@@ -14,9 +14,9 @@ RSpec.describe Weapon, type: :model do
       @weapon_4 = Weapon.create!(name: 'Popsicle', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_2.id)
     end
 
-    it '.ranged_attack_weapons returns' do
-      expected = [@weapon_1, @weapon_3]
-      expect(@role_1.weapons.ranged_attack_weapons).to eq(expected)
+    it '.ranged_attack_weapons returns only weapons that are ranged' do
+      expected = [@weapon_1, @weapon_3, @weapons_4]
+      expect(Weapons.ranged_attack_weapons).to eq(expected)
     end
 
     it '.by_name sorts weapons by alphabetical order' do
