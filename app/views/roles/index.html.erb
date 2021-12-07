@@ -2,9 +2,11 @@
 <br>
 <div class="roles">
 <% @roles.each do |role| %>
-  <div class="role"><h3><%= role.name %></h3>
-    <p> : <%= role.created_at %></p>
-  </div>
+  <span class ="role">
+    <h3><%= role.name %></h3>
+    <p><%= "Created at: #{role.created_at}" %></p>
+    <%= button_to 'Edit', "/roles/#{role.id}/edit", :id => "Edit_#{role.id}"%>
+  </span>
 <% end %>
 </div>
 <br>
