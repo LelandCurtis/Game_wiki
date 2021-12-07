@@ -1,7 +1,11 @@
 class RoleWeaponsController < ApplicationController
   def index
     @role = Role.find(params[:role_id])
-    @weapons = @role.weapons
+    if params[:by_name]
+      @weapons = @role.weapons.by_name
+    else
+      @weapons = @role.weapons
+    end
   end
 
   def new
@@ -13,13 +17,6 @@ class RoleWeaponsController < ApplicationController
     @role.weapons.create(weapons_params)
     redirect_to "/roles/#{@role.id}/weapons"
   end
-
-  def index_by_name
-    @role = Role.find(params[:role_id])
-    @weapons = @role.weapons.by_name
-    redirect_to "/roles/#{@role.id}/weapons"
-  end
-
 
   private
 
