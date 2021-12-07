@@ -27,10 +27,19 @@ require 'rails_helper'
      click_link "Monsters:"
      expect(current_path).to eq("/levels/#{@level_1.id}/monsters")
    end
-   
+
    it "links to the edit page" do
      visit "/levels/#{@level_1.id}"
      click_button "Edit Level"
      expect(current_path).to eq("/levels/#{@level_1.id}/edit")
+   end
+
+   it "has a link to delete the level" do
+     visit "/levels/#{@level_1.id}"
+     expect(page).to have_content(@level_1.name)
+     expect(page).to have_link("Delete")
+     click_link "Delete"
+     expect(current_path).to eq("/levels")
+     expect(page).not_to have_content(@level_1.name)
    end
  end
