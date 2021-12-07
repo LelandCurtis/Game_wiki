@@ -2,7 +2,7 @@ class RoleWeaponsController < ApplicationController
   def index
     @role = Role.find(params[:role_id])
     if params[:by_name]
-      @weapons = @role.weapons.by_name
+      @weapons = @role.weapons_by_name
     else
       @weapons = @role.weapons
     end

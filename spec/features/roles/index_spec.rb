@@ -54,10 +54,10 @@ RSpec.describe 'roles index page' do
 
   it 'links to each show page through the title of the role' do
     visit '/roles'
-    expect(page).to have_link("#{role_1.name}")
-    expect(page).to have_link("#{role_2.name}")
-    expect(page).to have_link("#{role_3.name}")
-    click_link "#{role_1.name}"
-    expect (current_path).to eq("/roles/#{role_1.id}")
+    expect(page).to have_link("#{@role_1.name}")
+    expect(page).to have_link("#{@role_2.name}")
+    expect(page).to have_link("#{@role_3.name}")
+    click_link "#{@role_1.name}"
+    expect (current_path).to eq("/roles/#{@role_1.id}")
   end
 end
