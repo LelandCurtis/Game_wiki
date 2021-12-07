@@ -14,6 +14,12 @@ class RoleWeaponsController < ApplicationController
     redirect_to "/roles/#{@role.id}/weapons"
   end
 
+  def index_by_name
+    @role = Role.find(params[:role_id])
+    @weapons = @role.weapons.by_name
+    redirect_to "/roles/#{@role.id}/weapons"
+  end
+
 
   private
 

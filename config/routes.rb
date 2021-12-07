@@ -23,8 +23,10 @@ Rails.application.routes.draw do
   get '/weapons/:id', to: 'weapons#show'
   get '/weapons/:id/edit', to: 'weapons#edit'
   patch '/weapons/:id', to: 'weapons#update'
+
   get '/roles/:role_id/weapons', to: 'role_weapons#index'
   get '/roles/:role_id/weapons/new', to: 'role_weapons#new'
+  get '/roles/:role_id/weapons/by_name', to: 'role_weapons#index_by_name'
   post '/roles/:role_id/weapons', to: 'role_weapons#create'
 
   get '/levels/:level_id/monsters', to: 'level_monsters#index'
