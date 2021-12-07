@@ -5,7 +5,7 @@
   <span class ="role">
     <h3><%= role.name %></h3>
     <p><%= "Created at: #{role.created_at}" %></p>
-    <%= button_to 'Edit', "/roles/#{role.id}/edit", :id => "Edit_#{role.id}"%>
+    <%= button_to 'Edit', "/roles/#{role.id}/edit", method: :get, :id => "Edit_#{role.id}"%>
   </span>
 <% end %>
 </div>
