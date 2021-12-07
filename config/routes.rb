@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/roles', to: 'roles#create'
   get '/roles/:role_id/edit', to: 'roles#edit'
   patch '/roles/:role_id', to: 'roles#update'
+  delete '/roles/:role_id' to: 'roles#destroy'
 
   get '/weapons', to: 'weapons#index'
   get '/weapons/:id', to: 'weapons#show'

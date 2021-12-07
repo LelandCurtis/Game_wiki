@@ -21,6 +21,11 @@ class RolesController < ApplicationController
     @role = Role.find(params[:role_id])
   end
 
+  def destroy
+    Role.find(params[:role_id]).destroy
+    redirect_to "/roles"
+  end
+
   def update
     @role = Role.find(params[:role_id])
     @role.update(role_params)
