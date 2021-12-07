@@ -6,8 +6,8 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
     @role_3 = Role.create!(name: 'role_3', unlocked: false, health: 30)
 
-    @weapon_1 = Weapon.create!(name: 'weapon_1', ranged_attack: true, fire_rate: 0.5, damage: 30, role_id: @role_1.id)
-    @weapon_2 = Weapon.create!(name: 'weapon_2', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
+    @weapon_1 = Weapon.create!(name: 'Bazooka', ranged_attack: true, fire_rate: 0.5, damage: 30, role_id: @role_1.id)
+    @weapon_2 = Weapon.create!(name: 'AK-47', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
     @weapon_3 = Weapon.create!(name: 'weapon_3', ranged_attack: true, fire_rate: 1.0, damage: 45, role_id: @role_2.id)
     @weapon_4 = Weapon.create!(name: 'weapon_4', ranged_attack: true, fire_rate: 1.5, damage: 70, role_id: @role_2.id)
     @weapon_5 = Weapon.create!(name: 'weapon_5', ranged_attack: false, fire_rate: 1.0, damage: 80, role_id: @role_3.id)
@@ -38,5 +38,14 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
   it "doesn't show data related to other weapons" do
     visit "/roles/#{@role_1.id}/weapons"
     expect(page).to_not have_content(@weapon_3.name)
+  end
+
+  it 'has link to sort index page' do
+    visit "/roles/#{@role_1.id}/weapons"
+    name_1 = @weapon_1.name
+    name_2 = @weapon_2.name
+    expect(name_1).to appear_before(name_2, only_text: true)
+    click_link "Sort Index"
+    expect(name_2).to appear_before(name_1, only_text: true)
   end
 end

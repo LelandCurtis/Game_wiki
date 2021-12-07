@@ -8,14 +8,20 @@ RSpec.describe Weapon, type: :model do
       @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
       @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
 
-      @weapon_1 = Weapon.create!(name: 'weapon_1', ranged_attack: true, fire_rate: 0.5, damage: 30, role_id: @role_1.id)
-      @weapon_2 = Weapon.create!(name: 'weapon_2', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
-      @weapon_3 = Weapon.create!(name: 'weapon_3', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
+      @weapon_1 = Weapon.create!(name: 'Bazooka', ranged_attack: true, fire_rate: 0.5, damage: 30, role_id: @role_1.id)
+      @weapon_2 = Weapon.create!(name: 'AK-47', ranged_attack: false, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
+      @weapon_3 = Weapon.create!(name: 'Sword', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
+      @weapon_4 = Weapon.create!(name: 'Popsicle', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_2.id)
     end
+
     it '.ranged_attack_weapons returns' do
       expected = [@weapon_1, @weapon_3]
-      ranged_weapons = Weapon.ranged_attack_weapons
-      expect(ranged_weapons).to eq(expected)
+      expect(@role_1.weapons.ranged_attack_weapons).to eq(expected)
+    end
+
+    it '.by_name sorts weapons by alphabetical order' do
+      expected2 = [@weapon_2, @weapon_1, @weapon_3]
+      expect(@role_1.weapons.by_name).to eq(expected2)
     end
   end
 end
