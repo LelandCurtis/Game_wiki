@@ -18,10 +18,5 @@ RSpec.describe Weapon, type: :model do
       expected = [@weapon_1, @weapon_3, @weapons_4]
       expect(Weapons.ranged_attack_weapons).to eq(expected)
     end
-
-    it '.by_name sorts weapons by alphabetical order' do
-      expected2 = [@weapon_2, @weapon_1, @weapon_3]
-      expect(@role_1.weapons.by_name).to eq(expected2)
-    end
   end
 end
