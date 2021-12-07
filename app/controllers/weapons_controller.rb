@@ -17,6 +17,11 @@ class WeaponsController < ApplicationController
     redirect_to "/weapons/#{@weapon.id}"
   end
 
+  def destroy
+    Weapon.find(params[:id]).destroy
+    redirect_to "/weapons"
+  end
+
   private
 
   def weapon_params

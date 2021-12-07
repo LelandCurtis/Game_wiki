@@ -3,3 +3,4 @@
 <h3><%= "Fire Rate: #{@weapon.fire_rate}" %></h3>
 <h3><%= "Damage: #{@weapon.damage}" %></h3>
 <h3><%= link_to 'Update Weapon', "/weapons/#{@weapon.id}/edit" %></h3>
+<h3><%= link_to "Delete Weapon", "/weapons/#{@weapon.id}", method: :delete %></h3>

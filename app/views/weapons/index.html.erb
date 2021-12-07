@@ -2,7 +2,7 @@
 <br>
 <% @weapons.each do |weapon| %>
   <span>
-    <h3><%= weapon.name %></h3>
+    <h3><%= link_to "#{weapon.name}", "/weapons/#{weapon.id}" %></h3>
     <%= button_to 'Edit', "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
   </span>
 <% end %>

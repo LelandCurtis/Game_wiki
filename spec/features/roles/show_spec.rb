@@ -44,8 +44,8 @@ RSpec.describe 'roles show page' do
 
   it 'has a link to delete the role' do
     visit "/roles/#{@role_1.id}"
-    expect(page).to have_link("Delete")
-    click_link "Delete"
+    expect(page).to have_link("Delete Role")
+    click_link "Delete Role"
     expect(current_path).to eq("/roles")
   end
 end
