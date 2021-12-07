@@ -35,7 +35,7 @@ RSpec.describe 'Monsters pages', type: :feature do
       expect(page).to have_content(@monster_1.name)
       click_button "Delete Monster"
       expect(current_path).to eq("/monsters")
-      expect(page).not_to have_content(@Monster_1.name)
+      expect(page).not_to have_content(@monster_1.name)
     end
   end
 end
