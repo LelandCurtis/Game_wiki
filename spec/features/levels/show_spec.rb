@@ -37,8 +37,7 @@ require 'rails_helper'
    it "has a link to delete the level" do
      visit "/levels/#{@level_1.id}"
      expect(page).to have_content(@level_1.name)
-     expect(page).to have_link("Delete")
-     click_link "Delete"
+     click_button "Delete Level"
      expect(current_path).to eq("/levels")
      expect(page).not_to have_content(@level_1.name)
    end

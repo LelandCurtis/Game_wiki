@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/levels', to: 'levels#create'
   get '/levels/:level_id/edit', to: 'levels#edit'
   patch '/levels/:level_id', to: 'levels#update'
+  delete '/levels/:level_id', to: 'levels#destroy'
 
   get '/monsters', to: 'monsters#index'
   get '/monsters/:id', to: 'monsters#show'
