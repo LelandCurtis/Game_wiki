@@ -51,4 +51,13 @@ RSpec.describe 'roles index page' do
     page.find_by_id("Edit_#{@role_2.id}").click
     expect(current_path).to eq("/roles/#{@role_2.id}/edit")
   end
+
+  it 'links to each show page through the title of the role' do
+    visit '/roles'
+    expect(page).to have_link("#{role_1.name}")
+    expect(page).to have_link("#{role_2.name}")
+    expect(page).to have_link("#{role_3.name}")
+    click_link "#{role_1.name}"
+    expect (current_path).to eq("/roles/#{role_1.id}")
+  end
 end
