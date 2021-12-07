@@ -22,7 +22,9 @@ class RolesController < ApplicationController
   end
 
   def destroy
-    Role.find(params[:role_id]).destroy
+    role = Role.find(params[:role_id])
+    role.weapons.destroy_all
+    role.destroy
     redirect_to "/roles"
   end
 
