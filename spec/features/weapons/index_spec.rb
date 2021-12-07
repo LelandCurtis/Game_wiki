@@ -36,7 +36,6 @@ RSpec.describe 'weapons index page' do
 
   it 'has an edit link next to each item ' do
     visit '/weapons'
-    save_and_open_page
     expect(page).to have_button("Edit_#{@weapon_1.id}")
     expect(page).to have_button("Edit_#{@weapon_3.id}")
     expect(page).to have_button("Edit_#{@weapon_4.id}")
