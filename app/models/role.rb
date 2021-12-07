@@ -6,6 +6,6 @@ class Role < ApplicationRecord
   end
 
   def weapons_by_name
-    weapons.order(:name)
+    weapons.by_name
   end
 end
