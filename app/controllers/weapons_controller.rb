@@ -1,6 +1,6 @@
 class WeaponsController < ApplicationController
   def index
-    @weapons = Weapon.all
+    @weapons = Weapon.ranged_attack_weapons
   end
 
   def show
