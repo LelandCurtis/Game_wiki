@@ -21,6 +21,13 @@ class RolesController < ApplicationController
     @role = Role.find(params[:role_id])
   end
 
+  def destroy
+    role = Role.find(params[:role_id])
+    role.weapons.destroy_all
+    role.destroy
+    redirect_to "/roles"
+  end
+
   def update
     @role = Role.find(params[:role_id])
     @role.update(role_params)
