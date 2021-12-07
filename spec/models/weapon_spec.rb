@@ -15,8 +15,8 @@ RSpec.describe Weapon, type: :model do
     end
 
     it '.ranged_attack_weapons returns only weapons that are ranged' do
-      expected = [@weapon_1, @weapon_3, @weapons_4]
-      expect(Weapons.ranged_attack_weapons).to eq(expected)
+      expected = [@weapon_1, @weapon_3, @weapon_4]
+      expect(Weapon.ranged_attack_weapons).to eq(expected)
     end
   end
 end
