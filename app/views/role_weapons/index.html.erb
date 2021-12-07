@@ -8,4 +8,4 @@
   <%= button_to "Edit", "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
 <% end %>
 <%= link_to 'Create New Weapon', "/roles/#{@role.id}/weapons/new" %>
-<%= link_to 'Sort Index', "/roles/#{@role.id}/weapons/by_name" %>
+<%= link_to 'Sort Index', "/roles/#{@role.id}/weapons?by_name=true"%>

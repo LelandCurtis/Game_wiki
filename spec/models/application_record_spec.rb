@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Role, type: :model do
-  it {should have_many :weapons}
-
-  describe 'instance methods' do
+RSpec.describe 'ApplicationRecord' do
+  describe '::by_name sorts all objects by name' do
     before :each do
       @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
       @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
@@ -13,12 +11,8 @@ RSpec.describe Role, type: :model do
       @weapon_3 = Weapon.create!(name: 'Sword', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_1.id)
       @weapon_4 = Weapon.create!(name: 'Popsicle', ranged_attack: true, fire_rate: 0.25, damage: 15, role_id: @role_2.id)
     end
-
-    it "#by_name sorts the role's weapons by alphabetical order" do
-      expected2 = [@weapon_2, @weapon_1, @weapon_3]
-      expect(@role_1.weapons_by_name).to eq(expected2)
+    it "sorts by name" do
+      expect(Weapon.by_name).to eq([@weapon_2, @weapon_1, @weapon_4, @weapon_3])
     end
   end
-  # pending "add some examples to (or delete) #{__FILE__}"
-
 end
