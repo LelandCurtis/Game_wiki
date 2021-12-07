@@ -23,13 +23,14 @@ RSpec.describe 'weapons index page' do
     expect(page).to have_content("Weapons")
   end
 
-  it 'lists weapon names' do
+  it 'lists weapon names if ranged_weapon == true' do
     visit '/weapons'
     expect(page).to have_content(@weapon_1.name)
-    expect(page).to have_content(@weapon_2.name)
     expect(page).to have_content(@weapon_3.name)
     expect(page).to have_content(@weapon_4.name)
-    expect(page).to have_content(@weapon_5.name)
     expect(page).to have_content(@weapon_6.name)
+
+    expect(page).to_not have_content(@weapon_2.name)
+    expect(page).to_not have_content(@weapon_5.name)
   end
 end
