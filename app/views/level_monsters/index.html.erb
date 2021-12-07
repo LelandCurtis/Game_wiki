@@ -6,3 +6,4 @@
 <p><%= "Difficulty #{monster.health}" %></p>
 <% end %>
 <%= link_to "New Monster", "/levels/#{@level.id}/monsters/new" %>
+<%= link_to 'Sort Index', "/levels/#{@level.id}/monsters?by_name=true"%>

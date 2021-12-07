@@ -3,7 +3,7 @@ class LevelMonstersController < ApplicationController
     @level = Level.find(params[:level_id])
     if params[:by_name]
       @monsters = @level.monsters_by_name
-    else 
+    else
       @monsters = @level.monsters
     end
   end
