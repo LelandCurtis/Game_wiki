@@ -41,5 +41,4 @@ require 'rails_helper'
     expect(current_path).to eq("/levels/#{@level_1.id}/edit")
   end
 
-
  end

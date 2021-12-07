@@ -1,6 +1,7 @@
 <h1> <%= @level.name %> </h1>
 <h2> <%= button_to "Edit Level", "/levels/#{@level.id}/edit", method: :get %> </h2>
+<h2> <%= button_to "Delete Level", "/levels/#{@level.id}", method: :delete %> </h2>
 <p> Boss: <%= @level.boss %></p>
 <p> Difficulty: <%= @level.difficulty %></p>
 <p> Number of monsters in level: <%=  "#{@count_of_monsters_level}" %></p>
-<p><%= link_to "Monsters:", "/levels/#{@level.id}/monsters" %> </p>
+rs<p><%= link_to "Monsters:", "/levels/#{@level.id}/monsters" %> </p>
