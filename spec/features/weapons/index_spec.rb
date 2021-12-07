@@ -36,15 +36,16 @@ RSpec.describe 'weapons index page' do
 
   it 'has an edit link next to each item ' do
     visit '/weapons'
-    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_1.id}/edit")
-    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_3.id}/edit")
-    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_4.id}/edit")
-    expect(page).to have_link("Edit", :href => "/weapons/#{@weapon_6.id}/edit")
+    save_and_open_page
+    expect(page).to have_button("Edit_#{@weapon_1.id}")
+    expect(page).to have_button("Edit_#{@weapon_3.id}")
+    expect(page).to have_button("Edit_#{@weapon_4.id}")
+    expect(page).to have_button("Edit_#{@weapon_6.id}")
 
-    expect(page).to_not have_link("Edit", :href => "/weapons/#{@weapon_2.id}/edit")
-    expect(page).to_not have_link("Edit", :href => "/weapons/#{@weapon_5.id}/edit")
+    expect(page).to_not have_button("Edit_#{@weapon_2.id}")
+    expect(page).to_not have_button("Edit_#{@weapon_5.id}")
 
     page.find_by_id("Edit_#{@weapon_3.id}").click
-    expect(current_path).to eq("/roles/#{@role_2.id}/edit")
+    expect(current_path).to eq("/weapons/#{@weapon_3.id}/edit")
   end
 end
