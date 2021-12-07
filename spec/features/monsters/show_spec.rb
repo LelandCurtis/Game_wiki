@@ -23,11 +23,19 @@ RSpec.describe 'Monsters pages', type: :feature do
       expect(page).to have_content(@monster_1.enraged)
       expect(page).to have_content(@monster_1.health)
     end
-    
+
     it "links to the edit page" do
       visit "/monsters/#{@monster_1.id}"
       click_button "Edit Monster"
       expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
+    end
+
+    it "has a link to delete the level" do
+      visit "/monsters/#{@monster_1.id}"
+      expect(page).to have_content(@monster_1.name)
+      click_button "Delete Monster"
+      expect(current_path).to eq("/monsters")
+      expect(page).not_to have_content(@monster_1.name)
     end
   end
 end

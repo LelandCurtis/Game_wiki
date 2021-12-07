@@ -27,6 +27,13 @@ class LevelsController < ApplicationController
     redirect_to "/levels/#{@level.id}"
   end
 
+  def destroy
+    level = Level.find(params[:level_id])
+    level.monsters.destroy_all
+    level.destroy
+    redirect_to "/levels"
+  end
+
   private
 
   def level_params
