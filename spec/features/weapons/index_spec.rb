@@ -47,4 +47,15 @@ RSpec.describe 'weapons index page' do
     page.find_by_id("Edit_#{@weapon_3.id}").click
     expect(current_path).to eq("/weapons/#{@weapon_3.id}/edit")
   end
+
+  it 'has links to corresponding show pages for each weapon' do
+    visit '/weapons'
+    expect(page).to have_link("#{@weapon_1.name}")
+    expect(page).to have_link("#{@weapon_3.name}")
+    expect(page).to have_link("#{@weapon_4.name}")
+    expect(page).to have_link("#{@weapon_6.name}")
+
+    click_link "#{@weapon_1.name}"
+    expect(current_path).to eq("/weapons/#{@weapon_1.id}")
+  end
 end
