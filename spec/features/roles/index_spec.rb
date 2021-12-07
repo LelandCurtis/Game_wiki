@@ -48,7 +48,7 @@ RSpec.describe 'roles index page' do
     expect(page).to have_link("Edit", :href=>"/roles/#{@role_2.id}/edit")
     expect(page).to have_link("Edit", :href=>"/roles/#{@role_3.id}/edit")
 
-    page.find_link('Edit').where('href = "/roles/#{@role_2.id}/edit"').click
+    page.find_by_id("Edit_#{@role_2.id}").click
     expect(current_path).to eq("/roles/#{@role_2.id}/edit")
 
   end
