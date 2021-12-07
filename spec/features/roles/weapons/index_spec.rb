@@ -39,4 +39,12 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     visit "/roles/#{@role_1.id}/weapons"
     expect(page).to_not have_content(@weapon_3.name)
   end
+
+  it 'has link to sort index page' do
+    visit "/roles/#{@role_1.id}/weapons"
+    click_link "Sort Index"
+    name_1 = find(@weapon_1.name)
+    name_2 = find(@weapon_2.name)
+    expect(name_2).to appear_before(name_1)
+  end
 end
