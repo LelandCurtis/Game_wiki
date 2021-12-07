@@ -3,7 +3,7 @@
 <div class="roles">
 <% @roles.each do |role| %>
   <span class ="role">
-    <h3><%= role.name %></h3>
+    <h3><%= link_to "#{role.name}", "/roles/#{role.id}" %></h3>
     <p><%= "Created at: #{role.created_at}" %></p>
     <%= button_to 'Edit', "/roles/#{role.id}/edit", method: :get, :id => "Edit_#{role.id}"%>
   </span>
