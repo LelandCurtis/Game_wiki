@@ -20,9 +20,9 @@ RSpec.describe Role, type: :model do
     end
 
     it 'filters out all weapons below a damage threshold' do
-      expect(@role_1.remove_damage_below(29)).to eq([@weapon_2])
+      expect(@role_1.remove_damage_below(29)).to eq([@weapon_1])
       expect(@role_1.remove_damage_below(30)).to eq([])
-      expect(@role_1.remove_damage_below(5)).to eq([@weapon_1, @weapon_2])
+      expect(@role_1.remove_damage_below(5)).to eq([@weapon_1, @weapon_2, @weapon_3])
     end
   end
 

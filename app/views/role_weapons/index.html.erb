@@ -3,11 +3,11 @@
 <%= link_to 'Create New Weapon', "/roles/#{@role.id}/weapons/new" %>
 <%= link_to 'Sort Index', "/roles/#{@role.id}/weapons?by_name=true"%>
 <span class = "damage_filter">
-  <%= form_with url: "roles/@role.id/weapon?damage_filter=true", method: :get do |form|  %>
-    <%= form.label :threshold, :value => "Input Damage Threshold" %>
-    <%= form.number_field :threshold %>
+  <%= form_with url: "/roles/#{@role.id}/weapons?damage_filter=true", method: :get do |form|  %>
+    <%= form.label :damage, :value => "Input Damage Threshold" %>
+    <%= form.number_field :damage %>
     <%= form.submit :submit, :value => "Only return weapons with damage higher than input value" %>
-  <% end %>  
+  <% end %>
 </span>
 <br>
 <% @weapons.each do |weapon| %>

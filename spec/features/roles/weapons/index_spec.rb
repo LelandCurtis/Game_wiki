@@ -86,16 +86,16 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     threshold = 35
     @roles.each do |role|
       visit "/roles/#{role.id}/weapons"
-      fill_in "Damage", with: threshold
+      fill_in "damage", with: threshold
       click_button "Only return weapons with damage higher than input value"
       expect(current_path).to eq("/roles/#{role.id}/weapons")
 
-      damage = role.weapons.pluck(:damage)
-      damage.each do |damage|
-        if damage > threshold
-          expect(current_path).to have_content(damage)
+      role.weapons.each do |weapon|
+        if weapon.damage > threshold
+          expect(page).to have_content(weapon.name)
         else
-          expect(current_path).to_not have_content(damage)
+          save_and_open_page
+          expect(page).to_not have_content(weapon.name)
         end
       end
     end
