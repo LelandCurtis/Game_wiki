@@ -1,9 +1,15 @@
-<% @monsters.each do |monster| %>
 
+<%= form_with url: "/levels/#{@level.id}/monsters", method: :get, local: true do |form|  %>
+  <%= form.submit "Return Monsters with health above:" %>
+  <%= form.number_field :health %>
+  <%= form.hidden_field :health_filter, :value => true %>
+<% end %>
+
+<% @monsters.each do |monster| %>
 <h1> <%= monster.name %> </h1>
 <h2> <%= button_to "Edit Monster", "/monsters/#{monster.id}/edit", method: :get %> </h2>
 <p><%= "Enraged: #{monster.enraged}" %></p>
-<p><%= "Difficulty #{monster.health}" %></p>
+<p><%= "Health #{monster.health}" %></p>
 <% end %>
 <%= link_to "New Monster", "/levels/#{@level.id}/monsters/new" %>
 <%= link_to 'Sort Index', "/levels/#{@level.id}/monsters?by_name=true"%>

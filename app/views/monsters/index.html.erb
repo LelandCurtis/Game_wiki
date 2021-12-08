@@ -1,5 +1,4 @@
 <h1>Monsters</h1>
-<br>
 <% @monsters.each do |monster| %>
   <h2><%= link_to monster.name, "/monsters/#{monster.id}" %>  </h2>
   <p>Enraged: <%= monster.enraged %></p>

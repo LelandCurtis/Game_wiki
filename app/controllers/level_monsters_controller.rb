@@ -3,6 +3,8 @@ class LevelMonstersController < ApplicationController
     @level = Level.find(params[:level_id])
     if params[:by_name]
       @monsters = @level.monsters_by_name
+    elsif params[:health_filter]
+      @monsters = @level.remove_health_below(params[:health])
     else
       @monsters = @level.monsters
     end
