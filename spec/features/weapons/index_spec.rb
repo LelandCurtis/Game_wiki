@@ -36,6 +36,20 @@ RSpec.describe 'weapons index page' do
     end
   end
 
+  it 'displays all attributes' do
+    @weapons.each do |weapon|
+      visit '/weapons'
+      if weapon.ranged_attack
+        expect(page).to have_content(weapon.name)
+        expect(page).to have_content(weapon.ranged_attack)
+        expect(page).to have_content(weapon.fire_rate)
+        expect(page).to have_content(weapon.damage)
+      else
+        expect(page).to_not have_content(weapon.name)
+      end
+    end
+  end
+
   it 'has an edit link next to each item ' do
     @weapons.each do |weapon|
       visit '/weapons'
