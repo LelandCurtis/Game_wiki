@@ -1,5 +1,7 @@
 <h1>Roles</h1>
 <br>
+<h3><%= link_to 'Create New Role', '/roles/new' %></h3>
+<h3><%= link_to 'Sort By Weapon Count', '/roles?by_weapon=true' %></h3>
 <div class="roles">
 <% @roles.each do |role| %>
   <div class ="role", id= <%= "role_#{role.id}" %>>
@@ -11,4 +13,3 @@
 <% end %>
 </div>
 <br>
-<h3><%= link_to 'Create New Role', '/roles/new' %></h3>
