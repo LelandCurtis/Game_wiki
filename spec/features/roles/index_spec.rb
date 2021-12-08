@@ -86,9 +86,9 @@ RSpec.describe 'roles index page' do
 
   it 'has a link to sort index by the # of children' do
     visit '/roles'
-    expect(page).to have_link("Sort by weapon count")
+    expect(page).to have_link("Sort By Weapon Count")
     expect(@role_1.name).to appear_before(@role_2.name)
-    click_link "Sort by weapon count"
+    click_link "Sort By Weapon Count"
     expect(@role_2.name).to appear_before(@role_1.name)
   end
 end

@@ -1,6 +1,10 @@
 class RolesController < ApplicationController
   def index
-    @roles = Role.all.order(:created_at)
+    if params[:by_weapon]
+      @roles = Role.by_weapon_count
+    else
+      @roles = Role.all.order(:created_at)
+    end
   end
 
   def show
