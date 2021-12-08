@@ -5,6 +5,7 @@ RSpec.describe 'roles index page' do
     @role_1 = Role.create!(name: 'role_1', unlocked: true, health: 20)
     @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
     @role_3 = Role.create!(name: 'role_3', unlocked: false, health: 30)
+    @roles = [@role_1, @role_2, @role_3]
   end
 
   it 'exists' do
@@ -53,11 +54,24 @@ RSpec.describe 'roles index page' do
   end
 
   it 'has links to each show page through the title of the role' do
-    visit '/roles'
-    expect(page).to have_link("#{@role_1.name}")
-    expect(page).to have_link("#{@role_2.name}")
-    expect(page).to have_link("#{@role_3.name}")
-    click_link "#{@role_1.name}"
-    expect(current_path).to eq("/roles/#{@role_1.id}")
+    @roles.each do |role|
+      visit '/roles'
+      expect(page).to have_link("#{role.name}")
+      click_link "#{role.name}"
+      expect(current_path).to eq("/roles/#{role.id}")
+    end
+  end
+
+  it 'has a delete link for each role' do
+    @roles.each do |role|
+      visit '/roles'
+      name = role.name
+      expect(page).to have_link("#{role.name}")
+      within('div.role', :id => "role_#{role.id}") do |ref|
+        click_button "Delete Role"
+        expect(current_path).to eq("/roles")
+        expect(current_path).to_not have_content("#{role.name}")
+      end
+    end
   end
 end
