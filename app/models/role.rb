@@ -8,4 +8,8 @@ class Role < ApplicationRecord
   def weapons_by_name
     weapons.by_name
   end
+
+  def remove_damage_below(threshold)
+    weapons.where("damage > #{threshold}")
+  end
 end

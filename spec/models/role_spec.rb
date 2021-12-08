@@ -15,10 +15,16 @@ RSpec.describe Role, type: :model do
     end
 
     it "#by_name sorts the role's weapons by alphabetical order" do
-      expected2 = [@weapon_2, @weapon_1, @weapon_3]
-      expect(@role_1.weapons_by_name).to eq(expected2)
+      expected = [@weapon_2, @weapon_1, @weapon_3]
+      expect(@role_1.weapons_by_name).to eq(expected)
+    end
+
+    it 'filters out all weapons below a damage threshold' do
+      expect(@role_1.remove_damage_below(29)).to eq([@weapon_1])
+      expect(@role_1.remove_damage_below(30)).to eq([])
+      expect(@role_1.remove_damage_below(5)).to eq([@weapon_1, @weapon_2, @weapon_3])
     end
   end
-  # pending "add some examples to (or delete) #{__FILE__}"
+
 
 end
