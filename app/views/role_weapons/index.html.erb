@@ -1,11 +1,14 @@
 <h1><%= "Weapons Available To #{@role.name} :"%></h1>
 <br>
-<% @weapons.each do |weapon| %>
-  <h3><%= weapon.name %></h3>
-  <p><%= "Ranged Attack? #{weapon.ranged_attack}" %></p>
-  <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
-  <p><%= "Damage: #{weapon.damage}" %></p><br>
-  <%= button_to "Edit", "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
-<% end %>
 <%= link_to 'Create New Weapon', "/roles/#{@role.id}/weapons/new" %>
 <%= link_to 'Sort Index', "/roles/#{@role.id}/weapons?by_name=true"%>
+<br>
+<% @weapons.each do |weapon| %>
+  <div class ="weapon", id= <%= "weapon_#{weapon.id}" %>>
+    <h3><%= weapon.name %></h3>
+    <p><%= "Ranged Attack? #{weapon.ranged_attack}" %></p>
+    <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
+    <p><%= "Damage: #{weapon.damage}" %></p>
+    <%= button_to "Edit", "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
+  </div>
+<% end %>
