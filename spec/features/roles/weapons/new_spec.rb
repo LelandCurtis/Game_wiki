@@ -25,35 +25,7 @@ RSpec.describe 'weapons create' do
     expect(current_path).to eq("/roles/#{@role_1.id}/weapons/new")
   end
 
-  it 'has text input field for name' do
-    visit "/roles/#{@role_1.id}/weapons/new"
-    expect(page).to have_field('name')
-    fill_in "name", with: 'New Weapon'
-    expect(page).to have_field('name', with: 'New Weapon')
-  end
-
-  it 'has select input field for ranged_attack' do
-    visit "/roles/#{@role_1.id}/weapons/new"
-    expect(page).to have_field('ranged_attack')
-    select "True", from: 'ranged_attack'
-    expect(page).to have_field('ranged_attack', with: 'true')
-  end
-
-  it 'has a fire_rate input as number' do
-    visit "/roles/#{@role_1.id}/weapons/new"
-    expect(page).to have_field('fire_rate')
-    fill_in "fire_rate", with: 0.1
-    expect(page).to have_field('fire_rate', with: 0.1)
-  end
-
-  it 'has a damage input as number' do
-    visit "/roles/#{@role_1.id}/weapons/new"
-    expect(page).to have_field('damage')
-    fill_in "damage", with: 0.1
-    expect(page).to have_field('damage', with: 0.1)
-  end
-
-  it 'has a submit button that redirects to roles/weapons index after new role is added' do
+  it 'has a form that creates a new weapon and redirects to roles_weapons index' do
     visit "/roles/#{@role_1.id}/weapons/new"
     expect(page).to have_button('Create Weapon')
 
