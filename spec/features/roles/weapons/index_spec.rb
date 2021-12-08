@@ -81,4 +81,23 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
       end
     end
   end
+
+  it 'has a form that allows filtering by damage' do
+    threshold = 35
+    @roles.each do |role|
+      visit "/roles/#{role.id}/weapons"
+      fill_in "Damage", with: threshold
+      click_button "Only return weapons with damage higher than input value"
+      expect(current_path).to eq("/roles/#{role.id}/weapons")
+
+      damage = role.weapons.pluck(:damage)
+      damage.each do |damage|
+        if damage > threshold
+          expect(current_path).to have_content(damage)
+        else
+          expect(current_path).to_not have_content(damage)
+        end
+      end
+    end
+  end
 end
