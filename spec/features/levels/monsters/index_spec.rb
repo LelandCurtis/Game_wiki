@@ -41,17 +41,17 @@ RSpec.describe 'Levels monsters index' do
   end
 
   it "has a form that allows filtering by health" do
-    health_range = 7
+    health_range = 8
     visit "/levels/#{@level_1.id}/monsters"
     fill_in "health", with: health_range
     click_button "Return Monsters with health above:"
 
-    expect(current_path).to eq("/monsters/#{@monster_1.id}/edit")
-    level.monsters.each do |monster|
+    expect(current_path).to eq("/levels/#{@level_1.id}/monsters")
+    @level_1.monsters.each do |monster|
       if monster.health > health_range
         expect(page).to have_content(monster.name)
       else
-        expect(page).to have_content(monster.name)
+        expect(page).to_not have_content(monster.name)
       end
     end
   end
