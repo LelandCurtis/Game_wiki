@@ -14,8 +14,6 @@ class Role < ApplicationRecord
   end
 
   def self.by_weapon_count
-    #roles = Role.all.order('role.weapons')
-    roles = Role.select('roles.*, COUNT(weapons.id) AS weapons_count').joins(:weapons).order(:weapons_count).group(roles.id)
-    require "pry"; binding.pry
+    roles = Role.select('roles.*, COUNT(weapons.id) AS weapons_count').joins(:weapons).order('weapons_count DESC').group('roles.id')
   end
 end
