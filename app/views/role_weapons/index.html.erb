@@ -10,5 +10,6 @@
     <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
     <p><%= "Damage: #{weapon.damage}" %></p>
     <%= button_to "Edit", "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
+    <%= button_to "Delete", "/weapons/#{weapon.id}", method: :delete %>
   </div>
 <% end %>
