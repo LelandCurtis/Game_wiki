@@ -21,11 +21,6 @@ RSpec.describe 'roles index page' do
     visit '/roles'
   end
 
-  it 'has a title called "Roles"' do
-    visit '/roles'
-    expect(page).to have_content("Roles")
-  end
-
   it 'displays each role name' do
     visit '/roles'
     @roles.each do |role|

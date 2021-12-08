@@ -14,11 +14,6 @@ RSpec.describe 'roles show page' do
     visit "/roles/#{@role_1.id}"
   end
 
-  it 'has a title of the name of the Role' do
-    visit "/roles/#{@role_1.id}"
-    expect(page).to have_content(@role_1.name)
-  end
-
   it 'displays all data related to that role' do
     visit "/roles/#{@role_1.id}"
     expect(page).to have_content("Unlocked? #{@role_1.unlocked}")

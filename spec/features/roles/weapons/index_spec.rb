@@ -21,11 +21,6 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     visit "/roles/#{@role_1.id}/weapons"
   end
 
-  it 'has a title call "Weapons available to ..Role name"' do
-    visit "/roles/#{@role_1.id}/weapons"
-    expect(page).to have_content("Weapons Available To #{@role_1.name} :")
-  end
-
   it 'lists all weapons and their attributes' do
     @roles.each do |role|
       visit "/roles/#{role.id}/weapons"
@@ -39,8 +34,13 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
   end
 
   it "doesn't show data related to other weapons" do
-    visit "/roles/#{@role_1.id}/weapons"
-    expect(page).to_not have_content(@weapon_3.name)
+    @roles.each do |role|
+      visit "/roles/#{role.id}/weapons"
+      bad_weapons = @weapons - role.weapons
+      bad_weapons.each do |weapon|
+        expect(page).to_not have_content(weapon.name)
+      end
+    end
   end
 
   it 'has link to sort index page' do
