@@ -40,7 +40,7 @@ RSpec.describe 'weapons index page' do
     @weapons.each do |weapon|
       visit '/weapons'
       if weapon.ranged_attack
-        within('div.weapon', id="#{weapon.id}") do
+        within('div.weapon', :id => "weapon_#{weapon.id}") do
           expect(page).to have_button("Edit")
           page.find_by_id("Edit_#{weapon.id}").click
           expect(current_path).to eq("/weapons/#{weapon.id}/edit")
@@ -64,7 +64,7 @@ RSpec.describe 'weapons index page' do
     @weapons.each do |weapon|
       visit '/weapons'
       if weapon.ranged_attack
-        within('div.weapon', id="#{weapon.id}") do
+        within('div.weapon', :id => "weapon_#{weapon.id}") do
           expect(page).to have_button("Delete")
           click_button "Delete"
           expect(current_path).to eq("/weapons")
