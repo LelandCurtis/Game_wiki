@@ -1,5 +1,5 @@
 <h1> <%= @monster.name %> </h1>
-<h2> <%= button_to "Edit Monster", "/monsters/#{@monster.id}/edit", method: :get %> </h2>
-<h2> <%= button_to "Delete Monster", "/monsters/#{@monster.id}", method: :delete %> </h2>
+<%= button_to "Edit Monster", "/monsters/#{@monster.id}/edit", method: :get %>
+<%= button_to "Delete Monster", "/monsters/#{@monster.id}", method: :delete %> 
 <p>Enraged: <%= @monster.enraged %></p>
 <p>Health: <%= @monster.health %></p>
