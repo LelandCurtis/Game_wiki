@@ -12,6 +12,9 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
     @weapon_4 = Weapon.create!(name: 'weapon_4', ranged_attack: true, fire_rate: 1.5, damage: 70, role_id: @role_2.id)
     @weapon_5 = Weapon.create!(name: 'weapon_5', ranged_attack: false, fire_rate: 1.0, damage: 80, role_id: @role_3.id)
     @weapon_6 = Weapon.create!(name: 'weapon_6', ranged_attack: true, fire_rate: 0.5, damage: 20, role_id: @role_3.id)
+
+    @weapons = [@weapon_1, @weapon_2, @weapon_3, @weapon_4, @weapon_5, @weapon_6]
+    @roles = [@role_1, @role_2, @role_3]
   end
 
   it 'routes properly' do
@@ -24,15 +27,15 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
   end
 
   it 'lists all weapons and their attributes' do
-    visit "/roles/#{@role_1.id}/weapons"
-    expect(page).to have_content(@weapon_1.name)
-    expect(page).to have_content("Ranged Attack? #{@weapon_1.ranged_attack}")
-    expect(page).to have_content("Fire Rate: #{@weapon_1.fire_rate}")
-    expect(page).to have_content("Damage: #{@weapon_1.damage}")
-    expect(page).to have_content(@weapon_2.name)
-    expect(page).to have_content("Ranged Attack? #{@weapon_2.ranged_attack}")
-    expect(page).to have_content("Fire Rate: #{@weapon_2.fire_rate}")
-    expect(page).to have_content("Damage: #{@weapon_2.damage}")
+    @roles.each do |role|
+      visit "/roles/#{role.id}/weapons"
+      role.weapons.each do |weapon|
+        expect(page).to have_content(weapon.name)
+        expect(page).to have_content("Ranged Attack? #{weapon.ranged_attack}")
+        expect(page).to have_content("Fire Rate: #{weapon.fire_rate}")
+        expect(page).to have_content("Damage: #{weapon.damage}")
+      end
+    end
   end
 
   it "doesn't show data related to other weapons" do
@@ -41,20 +44,41 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
   end
 
   it 'has link to sort index page' do
-    visit "/roles/#{@role_1.id}/weapons"
-    name_1 = @weapon_1.name
-    name_2 = @weapon_2.name
-    expect(name_1).to appear_before(name_2, only_text: true)
-    click_link "Sort Index"
-    expect(name_2).to appear_before(name_1, only_text: true)
+    @roles.each do |role|
+      visit "/roles/#{role.id}/weapons"
+      name_1 = role.weapons.first.name
+      name_2 = role.weapons.last.name
+      orig_order = [name_1, name_2]
+      sort_order = orig_order.sort
+      expect(orig_order[0]).to appear_before(orig_order[1], only_text: true)
+      click_link "Sort Index"
+      expect(sort_order[0]).to appear_before(sort_order[1], only_text: true)
+    end
   end
 
   it 'has an edit link next to each item ' do
-    visit "/roles/#{@role_1.id}/weapons"
-    expect(page).to have_button("Edit_#{@weapon_1.id}")
-    expect(page).to have_button("Edit_#{@weapon_2.id}")
+    @roles.each do |role|
+      role.weapons.each do |weapon|
+        visit "/roles/#{role.id}/weapons"
+        within('div.weapon', :id => "weapon_#{weapon.id}") do
+          expect(page).to have_button("Edit")
+          click_button "Edit"
+          expect(current_path).to eq("/weapons/#{weapon.id}/edit")
+        end
+      end
+    end
+  end
 
-    page.find_by_id("Edit_#{@weapon_1.id}").click
-    expect(current_path).to eq("/weapons/#{@weapon_1.id}/edit")
+  it 'has a delete button next to each item' do
+    @roles.each do |role|
+      role.weapons.each do |weapon|
+        visit "/roles/#{role.id}/weapons"
+        within('div.weapon', :id => "weapon_#{weapon.id}") do
+          expect(page).to have_button("Delete")
+          click_button "Delete"
+          expect(current_path).to eq("/weapons")
+        end
+      end
+    end
   end
 end
