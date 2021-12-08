@@ -12,6 +12,8 @@ RSpec.describe 'weapons index page' do
     @weapon_4 = Weapon.create!(name: 'weapon_4', ranged_attack: true, fire_rate: 1.5, damage: 70, role_id: @role_2.id)
     @weapon_5 = Weapon.create!(name: 'weapon_5', ranged_attack: false, fire_rate: 1.0, damage: 80, role_id: @role_3.id)
     @weapon_6 = Weapon.create!(name: 'weapon_6', ranged_attack: true, fire_rate: 0.5, damage: 20, role_id: @role_3.id)
+
+    @weapons = [@weapon_1, @weapon_2, @weapon_3, @weapon_4, @weapon_5, @weapon_6]
   end
 
   it 'exists' do
@@ -24,38 +26,51 @@ RSpec.describe 'weapons index page' do
   end
 
   it 'lists weapon names if ranged_weapon == true' do
-    visit '/weapons'
-    expect(page).to have_content(@weapon_1.name)
-    expect(page).to have_content(@weapon_3.name)
-    expect(page).to have_content(@weapon_4.name)
-    expect(page).to have_content(@weapon_6.name)
-
-    expect(page).to_not have_content(@weapon_2.name)
-    expect(page).to_not have_content(@weapon_5.name)
+    @weapons.each do |weapon|
+      visit '/weapons'
+      if weapon.ranged_attack
+        expect(page).to have_content(weapon.name)
+      else
+        expect(page).to_not have_content(weapon.name)
+      end
+    end
   end
 
   it 'has an edit link next to each item ' do
-    visit '/weapons'
-    expect(page).to have_button("Edit_#{@weapon_1.id}")
-    expect(page).to have_button("Edit_#{@weapon_3.id}")
-    expect(page).to have_button("Edit_#{@weapon_4.id}")
-    expect(page).to have_button("Edit_#{@weapon_6.id}")
-
-    expect(page).to_not have_button("Edit_#{@weapon_2.id}")
-    expect(page).to_not have_button("Edit_#{@weapon_5.id}")
-
-    page.find_by_id("Edit_#{@weapon_3.id}").click
-    expect(current_path).to eq("/weapons/#{@weapon_3.id}/edit")
+    @weapons.each do |weapon|
+      visit '/weapons'
+      if weapon.ranged_attack
+        within('div.weapon', id="#{weapon.id}") do
+          expect(page).to have_button("Edit")
+          page.find_by_id("Edit_#{weapon.id}").click
+          expect(current_path).to eq("/weapons/#{weapon.id}/edit")
+        end
+      end
+    end
   end
 
   it 'has links to corresponding show pages for each weapon' do
-    visit '/weapons'
-    expect(page).to have_link("#{@weapon_1.name}")
-    expect(page).to have_link("#{@weapon_3.name}")
-    expect(page).to have_link("#{@weapon_4.name}")
-    expect(page).to have_link("#{@weapon_6.name}")
+    @weapons.each do |weapon|
+      visit '/weapons'
+      if weapon.ranged_attack
+        expect(page).to have_link("#{weapon.name}")
+        click_link "#{weapon.name}"
+        expect(current_path).to eq("/weapons/#{weapon.id}")
+      end
+    end
+  end
 
-    click_link "#{@weapon_1.name}"
-    expect(current_path).to eq("/weapons/#{@weapon_1.id}")
+  it "has a delete button next to each weapon" do
+    @weapons.each do |weapon|
+      visit '/weapons'
+      if weapon.ranged_attack
+        within('div.weapon', id="#{weapon.id}") do
+          expect(page).to have_button("Delete")
+          click_button "Delete"
+          expect(current_path).to eq("/weapons")
+          expect(current_path).to_not have_content("#{weapon.name}")
+        end
+      end
+    end
   end
 end
