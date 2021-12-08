@@ -28,21 +28,15 @@ RSpec.describe 'roles index page' do
 
   it 'displays each role name' do
     visit '/roles'
-    expect(page).to have_content(@role_1.name)
-    expect(page).to have_content(@role_2.name)
-    expect(page).to have_content(@role_3.name)
+    @roles.each do |role|
+      expect(page).to have_content(role.name)
+    end
   end
 
-  it 'displays each in the order it was created.' do
+  it 'displays each in the order it was created' do
     visit '/roles'
-    Role.destroy(@role_2.id)
-    @role_2 = Role.create!(name: 'role_2', unlocked: true, health: 25)
-    visit current_path
-    item_1 = @role_1.name
-    item_2 = @role_2.name
-    item_3 = @role_3.name
-    expected = [item_1, item_3, item_2]
-    expect(page.find(:css, '.roles').all(:css, 'h3').map(&:text).split('\n')[0]).to eq(expected)
+    expect(@role_1.name).to appear_before(@role_2.name)
+    expected = [@item_1, @item_3, @item_4]
   end
 
   it 'displays when it was created' do
