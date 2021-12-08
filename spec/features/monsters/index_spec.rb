@@ -15,15 +15,12 @@ RSpec.describe 'Monsters pages', type: :feature do
   end
 
   describe 'index page' do
-    it "list all the monsters" do
+    it "list all the enraged monsters" do
       visit '/monsters'
 
       expect(page).to have_content('Monsters')
-      expect(page).to have_content(@monster_1.name)
       expect(page).to have_content(@monster_2.name)
       expect(page).to have_content(@monster_3.name)
-      expect(page).to have_content(@monster_4.name)
-      expect(page).to have_content(@monster_5.name)
       expect(page).to have_content(@monster_6.name)
     end
 

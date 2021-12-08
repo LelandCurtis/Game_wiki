@@ -2,6 +2,8 @@
 <br>
 <% @monsters.each do |monster| %>
   <h2><%= link_to monster.name, "/monsters/#{monster.id}" %>  </h2>
-  <h2> <%= button_to "Delete Monster", "/monsters/#{monster.id}", method: :delete %> </h2>
-  <p> <%= button_to "Edit Monster", "/monsters/#{monster.id}/edit", method: :get %> </p>
+  <p>Enraged: <%= monster.enraged %></p>
+  <p>Health: <%= monster.health %></p>
+  <%= button_to "Delete Monster", "/monsters/#{monster.id}", method: :delete %>
+  <%= button_to "Edit Monster", "/monsters/#{monster.id}/edit", method: :get %>
 <% end %>
