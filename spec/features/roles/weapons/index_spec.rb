@@ -68,4 +68,17 @@ RSpec.describe 'page indexing all weapons belonging to a particular role' do
       end
     end
   end
+
+  it 'has a delete button next to each item' do
+    @roles.each do |role|
+      role.weapons.each do |weapon|
+        visit "/roles/#{role.id}/weapons"
+        within('div.weapon', :id => "weapon_#{weapon.id}") do
+          expect(page).to have_button("Delete")
+          click_button "Delete"
+          expect(current_path).to eq("/weapons")
+        end
+      end
+    end
+  end
 end
