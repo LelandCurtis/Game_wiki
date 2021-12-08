@@ -3,6 +3,9 @@
 <% @weapons.each do |weapon| %>
   <div class ="weapon", id= <%= "weapon_#{weapon.id}" %>>
     <h3><%= link_to "#{weapon.name}", "/weapons/#{weapon.id}" %></h3>
+    <p><%= "Ranged Attack? #{weapon.ranged_attack}" %></p>
+    <p><%= "Fire Rate: #{weapon.fire_rate}" %></p>
+    <p><%= "Damage: #{weapon.damage}" %></p>
     <%= button_to 'Edit', "/weapons/#{weapon.id}/edit", method: :get, :id => "Edit_#{weapon.id}" %>
     <%= button_to 'Delete', "/weapons/#{weapon.id}", method: :delete %>
   </div>
