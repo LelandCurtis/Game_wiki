@@ -3,8 +3,8 @@ class RoleWeaponsController < ApplicationController
     @role = Role.find(params[:role_id])
     if params[:by_name]
       @weapons = @role.weapons_by_name
-    elsif params[:filter_damage]
-      @weapons = @role.remove_damage_below(params[:threshold])
+    elsif params[:damage_filter]
+      @weapons = @role.remove_damage_below(params[:damage])
     else
       @weapons = @role.weapons
     end
